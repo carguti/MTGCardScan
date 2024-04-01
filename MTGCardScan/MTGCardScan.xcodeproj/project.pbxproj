@@ -14,6 +14,18 @@
 		C0B52AE12BBB2DE00012A66C /* MTGCardScanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52AE02BBB2DE00012A66C /* MTGCardScanTests.swift */; };
 		C0B52AEB2BBB2DE00012A66C /* MTGCardScanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52AEA2BBB2DE00012A66C /* MTGCardScanUITests.swift */; };
 		C0B52AED2BBB2DE00012A66C /* MTGCardScanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52AEC2BBB2DE00012A66C /* MTGCardScanUITestsLaunchTests.swift */; };
+		C0B52AFF2BBB36040012A66C /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52AFE2BBB36040012A66C /* Dependencies.swift */; };
+		C0B52B012BBB362F0012A66C /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B002BBB362F0012A66C /* DependencyInjector.swift */; };
+		C0B52B022BBB362F0012A66C /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B002BBB362F0012A66C /* DependencyInjector.swift */; };
+		C0B52B032BBB362F0012A66C /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B002BBB362F0012A66C /* DependencyInjector.swift */; };
+		C0B52B042BBB36330012A66C /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52AFE2BBB36040012A66C /* Dependencies.swift */; };
+		C0B52B052BBB36340012A66C /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52AFE2BBB36040012A66C /* Dependencies.swift */; };
+		C0B52B082BBB365A0012A66C /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B072BBB365A0012A66C /* APICall.swift */; };
+		C0B52B092BBB365A0012A66C /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B072BBB365A0012A66C /* APICall.swift */; };
+		C0B52B0A2BBB365A0012A66C /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B072BBB365A0012A66C /* APICall.swift */; };
+		C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
+		C0B52B0D2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
+		C0B52B0E2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +56,10 @@
 		C0B52AE62BBB2DE00012A66C /* MTGCardScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTGCardScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B52AEA2BBB2DE00012A66C /* MTGCardScanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardScanUITests.swift; sourceTree = "<group>"; };
 		C0B52AEC2BBB2DE00012A66C /* MTGCardScanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardScanUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C0B52AFE2BBB36040012A66C /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		C0B52B002BBB362F0012A66C /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		C0B52B072BBB365A0012A66C /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		C0B52B0B2BBB36700012A66C /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +110,13 @@
 		C0B52ACE2BBB2DDD0012A66C /* MTGCardScan */ = {
 			isa = PBXGroup;
 			children = (
+				C0B52AFD2BBB35F30012A66C /* DependencyInjection */,
+				C0B52AF92BBB34FC0012A66C /* DDBBRepositories */,
+				C0B52AFC2BBB35E10012A66C /* Extensions */,
+				C0B52AFA2BBB35C70012A66C /* Interactors */,
+				C0B52AFB2BBB35D60012A66C /* Model */,
+				C0B52B062BBB36490012A66C /* Networking */,
+				C0B52B0F2BBB36830012A66C /* WebRepositories */,
 				C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */,
 				C0B52AD12BBB2DDD0012A66C /* ContentView.swift */,
 				C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */,
@@ -125,6 +148,59 @@
 				C0B52AEC2BBB2DE00012A66C /* MTGCardScanUITestsLaunchTests.swift */,
 			);
 			path = MTGCardScanUITests;
+			sourceTree = "<group>";
+		};
+		C0B52AF92BBB34FC0012A66C /* DDBBRepositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DDBBRepositories;
+			sourceTree = "<group>";
+		};
+		C0B52AFA2BBB35C70012A66C /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		C0B52AFB2BBB35D60012A66C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0B52AFC2BBB35E10012A66C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C0B52AFD2BBB35F30012A66C /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				C0B52AFE2BBB36040012A66C /* Dependencies.swift */,
+				C0B52B002BBB362F0012A66C /* DependencyInjector.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		C0B52B062BBB36490012A66C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C0B52B072BBB365A0012A66C /* APICall.swift */,
+				C0B52B0B2BBB36700012A66C /* WebRepository.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C0B52B0F2BBB36830012A66C /* WebRepositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebRepositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +333,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B52B012BBB362F0012A66C /* DependencyInjector.swift in Sources */,
+				C0B52AFF2BBB36040012A66C /* Dependencies.swift in Sources */,
+				C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */,
+				C0B52B082BBB365A0012A66C /* APICall.swift in Sources */,
 				C0B52AD22BBB2DDD0012A66C /* ContentView.swift in Sources */,
 				C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */,
 			);
@@ -266,6 +346,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B52B042BBB36330012A66C /* Dependencies.swift in Sources */,
+				C0B52B0D2BBB36700012A66C /* WebRepository.swift in Sources */,
+				C0B52B022BBB362F0012A66C /* DependencyInjector.swift in Sources */,
+				C0B52B092BBB365A0012A66C /* APICall.swift in Sources */,
 				C0B52AE12BBB2DE00012A66C /* MTGCardScanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +358,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B52B052BBB36340012A66C /* Dependencies.swift in Sources */,
 				C0B52AED2BBB2DE00012A66C /* MTGCardScanUITestsLaunchTests.swift in Sources */,
+				C0B52B0E2BBB36700012A66C /* WebRepository.swift in Sources */,
+				C0B52B0A2BBB365A0012A66C /* APICall.swift in Sources */,
+				C0B52B032BBB362F0012A66C /* DependencyInjector.swift in Sources */,
 				C0B52AEB2BBB2DE00012A66C /* MTGCardScanUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
