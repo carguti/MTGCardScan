@@ -41,7 +41,7 @@ extension APIError: LocalizedError {
 
 extension APICall {
     func urlRequest(baseURL: String) async throws -> URLRequest {
-        let fullURL = baseURL.appendingPathComponent(path)
+        let fullURL = baseURL + path
         
         guard let url = URL(string: fullURL) else {
             throw APIError.invalidURL

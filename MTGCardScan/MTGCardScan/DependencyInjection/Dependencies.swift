@@ -54,13 +54,11 @@ class Dependencies {
 extension Dependencies {
     private func usersDependencies(testMode: Bool = false) {
         if testMode {
-            @Provider var usersWebRepository = MockUsersWebRepository() as UsersWebRepository
-            @Provider var usersDDBBRepository = MockUsersDDBBRepository() as UsersDDBBRepository
+            @Provider var usersWebRepository = MockCardWebRepository() as CardWebRepository
         } else {
-            let baseUrl = "https://api.randomuser.me/"
+            let baseUrl = "https://api.scryfall.com"
             
-            @Provider var usersWebRepository = RealUsersWebRepository(session: session, baseURL: baseUrl) as UsersWebRepository
-            @Provider var usersDDBBRepository = RealUsersDDBBRepository() as UsersDDBBRepository
+            @Provider var cardWebRepository = RealCardWebRepository(session: session, baseURL: baseUrl) as CardWebRepository
         }
     }
 }
