@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Card: Codable {
+struct Card: Codable, Identifiable {
+    let id: String
     let name: String
     let lang: String
     let legalities: Legalities
@@ -19,6 +20,7 @@ struct Card: Codable {
     let cardFaces: [CardFace]?
     
     enum CodingKeys: String, CodingKey {
+        case id = "id"
         case name = "name"
         case lang = "lang"
         case legalities = "legalities"

@@ -30,6 +30,7 @@ struct MockCardWebRepository: CardWebRepository {
     let baseURL = "https://test.com"
     
     func getCard(collectionCode: String, cardNumber: Int, lang: String?) async throws -> Card {
+        let id = "8d94b8ec-ecda-43c8-a60e-1ba33e6a54a4"
         let cardName = "Edgar Markov"
         let lang = "en"
         let legalities = Legalities(standard: "not_legal", 
@@ -50,7 +51,7 @@ struct MockCardWebRepository: CardWebRepository {
         
         let relatedUris = RelatedUris(edhrec: "https://edhrec.com/route/?cc=Edgar+Markov")
         
-        return Card(name: cardName, lang: lang, legalities: legalities, foil: foil, noFoil: noFoil, prices: prices, imageUris: imageUris, relatedUris: relatedUris, cardFaces: nil)
+        return Card(id: id, name: cardName, lang: lang, legalities: legalities, foil: foil, noFoil: noFoil, prices: prices, imageUris: imageUris, relatedUris: relatedUris, cardFaces: nil)
     }
 }
 

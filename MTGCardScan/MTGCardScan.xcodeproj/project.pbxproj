@@ -27,6 +27,7 @@
 		C0B52B0D2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
 		C0B52B0E2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
 		C0C3E00F2BCC3C7000BF1993 /* CardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E00E2BCC3C7000BF1993 /* CardInteractor.swift */; };
+		C0C3E0112BCD6D5700BF1993 /* CardDDBBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0102BCD6D5700BF1993 /* CardDDBBRepository.swift */; };
 		C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */; };
 		C0D93CA72BC169D000BDA302 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA62BC169D000BDA302 /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		C0B52B072BBB365A0012A66C /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		C0B52B0B2BBB36700012A66C /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
 		C0C3E00E2BCC3C7000BF1993 /* CardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInteractor.swift; sourceTree = "<group>"; };
+		C0C3E0102BCD6D5700BF1993 /* CardDDBBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDDBBRepository.swift; sourceTree = "<group>"; };
 		C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWebRepository.swift; sourceTree = "<group>"; };
 		C0D93CA62BC169D000BDA302 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 		C0B52AF92BBB34FC0012A66C /* DDBBRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				C0C3E0102BCD6D5700BF1993 /* CardDDBBRepository.swift */,
 			);
 			path = DDBBRepositories;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				C0B52B012BBB362F0012A66C /* DependencyInjector.swift in Sources */,
 				C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */,
 				C0B52AFF2BBB36040012A66C /* Dependencies.swift in Sources */,
+				C0C3E0112BCD6D5700BF1993 /* CardDDBBRepository.swift in Sources */,
 				C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */,
 				C0B52B082BBB365A0012A66C /* APICall.swift in Sources */,
 				C0B52AD22BBB2DDD0012A66C /* ContentView.swift in Sources */,
