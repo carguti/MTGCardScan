@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */; };
-		C0B52AD22BBB2DDD0012A66C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52AD12BBB2DDD0012A66C /* ContentView.swift */; };
 		C0B52AD42BBB2DDF0012A66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */; };
 		C0B52AD72BBB2DDF0012A66C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD62BBB2DDF0012A66C /* Preview Assets.xcassets */; };
 		C0B52AE12BBB2DE00012A66C /* MTGCardScanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52AE02BBB2DE00012A66C /* MTGCardScanTests.swift */; };
@@ -28,6 +27,11 @@
 		C0B52B0E2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
 		C0C3E00F2BCC3C7000BF1993 /* CardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E00E2BCC3C7000BF1993 /* CardInteractor.swift */; };
 		C0C3E0112BCD6D5700BF1993 /* CardDDBBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0102BCD6D5700BF1993 /* CardDDBBRepository.swift */; };
+		C0C3E0172BCD740100BF1993 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0162BCD740100BF1993 /* SplashScreenView.swift */; };
+		C0C3E0192BCD742F00BF1993 /* SplashScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0182BCD742F00BF1993 /* SplashScreenVM.swift */; };
+		C0C3E01B2BCD76E600BF1993 /* ApplicationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E01A2BCD76E600BF1993 /* ApplicationSwitcher.swift */; };
+		C0C3E01D2BCD772900BF1993 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E01C2BCD772900BF1993 /* UserDefaults+Utils.swift */; };
+		C0C3E01F2BCD7A5F00BF1993 /* SplashScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E01E2BCD7A5F00BF1993 /* SplashScreenInteractor.swift */; };
 		C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */; };
 		C0D93CA72BC169D000BDA302 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA62BC169D000BDA302 /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +56,6 @@
 /* Begin PBXFileReference section */
 		C0B52ACC2BBB2DDD0012A66C /* MTGCardScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGCardScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardScanApp.swift; sourceTree = "<group>"; };
-		C0B52AD12BBB2DDD0012A66C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0B52AD62BBB2DDF0012A66C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C0B52ADC2BBB2DE00012A66C /* MTGCardScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTGCardScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +69,11 @@
 		C0B52B0B2BBB36700012A66C /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
 		C0C3E00E2BCC3C7000BF1993 /* CardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInteractor.swift; sourceTree = "<group>"; };
 		C0C3E0102BCD6D5700BF1993 /* CardDDBBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDDBBRepository.swift; sourceTree = "<group>"; };
+		C0C3E0162BCD740100BF1993 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		C0C3E0182BCD742F00BF1993 /* SplashScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVM.swift; sourceTree = "<group>"; };
+		C0C3E01A2BCD76E600BF1993 /* ApplicationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSwitcher.swift; sourceTree = "<group>"; };
+		C0C3E01C2BCD772900BF1993 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
+		C0C3E01E2BCD7A5F00BF1993 /* SplashScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInteractor.swift; sourceTree = "<group>"; };
 		C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWebRepository.swift; sourceTree = "<group>"; };
 		C0D93CA62BC169D000BDA302 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +126,7 @@
 		C0B52ACE2BBB2DDD0012A66C /* MTGCardScan */ = {
 			isa = PBXGroup;
 			children = (
+				C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */,
 				C0B52AFD2BBB35F30012A66C /* DependencyInjection */,
 				C0B52AF92BBB34FC0012A66C /* DDBBRepositories */,
 				C0B52AFC2BBB35E10012A66C /* Extensions */,
@@ -125,8 +134,7 @@
 				C0B52AFB2BBB35D60012A66C /* Model */,
 				C0B52B062BBB36490012A66C /* Networking */,
 				C0B52B0F2BBB36830012A66C /* WebRepositories */,
-				C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */,
-				C0B52AD12BBB2DDD0012A66C /* ContentView.swift */,
+				C0C3E0122BCD726200BF1993 /* Screens */,
 				C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */,
 				C0B52AD52BBB2DDF0012A66C /* Preview Content */,
 			);
@@ -185,6 +193,7 @@
 		C0B52AFC2BBB35E10012A66C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0C3E01C2BCD772900BF1993 /* UserDefaults+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +222,25 @@
 				C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */,
 			);
 			path = WebRepositories;
+			sourceTree = "<group>";
+		};
+		C0C3E0122BCD726200BF1993 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3E0132BCD727200BF1993 /* SplashScreen */,
+				C0C3E01A2BCD76E600BF1993 /* ApplicationSwitcher.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C0C3E0132BCD727200BF1993 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3E01E2BCD7A5F00BF1993 /* SplashScreenInteractor.swift */,
+				C0C3E0162BCD740100BF1993 /* SplashScreenView.swift */,
+				C0C3E0182BCD742F00BF1993 /* SplashScreenVM.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,12 +377,16 @@
 				C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */,
 				C0B52AFF2BBB36040012A66C /* Dependencies.swift in Sources */,
 				C0C3E0112BCD6D5700BF1993 /* CardDDBBRepository.swift in Sources */,
+				C0C3E0192BCD742F00BF1993 /* SplashScreenVM.swift in Sources */,
+				C0C3E0172BCD740100BF1993 /* SplashScreenView.swift in Sources */,
 				C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */,
 				C0B52B082BBB365A0012A66C /* APICall.swift in Sources */,
-				C0B52AD22BBB2DDD0012A66C /* ContentView.swift in Sources */,
 				C0C3E00F2BCC3C7000BF1993 /* CardInteractor.swift in Sources */,
+				C0C3E01B2BCD76E600BF1993 /* ApplicationSwitcher.swift in Sources */,
+				C0C3E01D2BCD772900BF1993 /* UserDefaults+Utils.swift in Sources */,
 				C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */,
 				C0D93CA72BC169D000BDA302 /* Card.swift in Sources */,
+				C0C3E01F2BCD7A5F00BF1993 /* SplashScreenInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
