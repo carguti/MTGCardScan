@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CardWebRepository: WebRepository {
-    func getCard(collectionCode: String, cardNumber: Int, lang: String?) async throws -> Card
+    func getCard(name: String) async throws -> Card
 }
 
 struct RealCardWebRepository: CardWebRepository {
@@ -20,8 +20,8 @@ struct RealCardWebRepository: CardWebRepository {
         self.baseURL = baseURL
     }
     
-    func getCard(collectionCode: String, cardNumber: Int, lang: String?) async throws -> Card {
-        return try await call(endpoint: API.card(collectionCode: collectionCode, cardNumber: cardNumber, lang: lang))
+    func getCard(name: String) async throws -> Card {
+        return try await call(endpoint: API.card(name: name))
     }
 }
 
@@ -29,7 +29,7 @@ struct MockCardWebRepository: CardWebRepository {
     let session: URLSession = .mockedResponsesOnly
     let baseURL = "https://test.com"
     
-    func getCard(collectionCode: String, cardNumber: Int, lang: String?) async throws -> Card {
+    func getCard(name: String) async throws -> Card {
         let id = "8d94b8ec-ecda-43c8-a60e-1ba33e6a54a4"
         let cardName = "Edgar Markov"
         let lang = "en"
@@ -57,15 +57,15 @@ struct MockCardWebRepository: CardWebRepository {
 
 extension RealCardWebRepository {
     enum API {
-        case card(collectionCode: String, cardNumber: Int, lang: String?)
+        case card(name: String)
     }
 }
 
 extension RealCardWebRepository.API: APICall {
     var path: String {
         switch self {
-        case .card(let collectionCode, let cardNumber, let lang):
-            return "/cards/\(collectionCode)/\(cardNumber)/\(lang ?? "")"
+        case .card(let name):
+            return "/cards/named?fuzzy=\(name.replacingOccurrences(of: " ", with: "+"))"
         }
     }
         

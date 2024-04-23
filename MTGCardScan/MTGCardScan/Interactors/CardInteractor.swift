@@ -8,10 +8,10 @@
 import Foundation
 
 final class CardInteractor {
-    func getCard(collectionCode: String, cardNumber: Int, lang: String?) async throws -> Card {
+    func getCard(name: String) async throws -> Card {
         @Inject var cardWebRepository: CardWebRepository
         
-        let card = try await cardWebRepository.getCard(collectionCode: collectionCode, cardNumber: cardNumber, lang: lang)
+        let card = try await cardWebRepository.getCard(name: name)
         
         return card
     }

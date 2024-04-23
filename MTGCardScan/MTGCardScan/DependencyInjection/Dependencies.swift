@@ -8,6 +8,8 @@
 import Foundation
 
 class Dependencies {
+    static var shared: Dependencies = .init()
+    
     var session: URLSession {
         let configuration = URLSessionConfiguration.default
         
@@ -22,17 +24,11 @@ class Dependencies {
     }
     
     init() {
-        usersDependencies()
+        
     }
     
-    // MARK: - Test data
-    
-    static var test: Dependencies {
-        return Dependencies(testMode: true)
-    }
-    
-    private init(testMode: Bool) {
-        usersDependencies(testMode: testMode)
+    func provideDependencies(testMode: Bool = false) {
+        cardDependencies(testMode: testMode)
     }
     
     // MARK: - Private methods
@@ -52,9 +48,9 @@ class Dependencies {
 // MARK: - Login dependencies
 
 extension Dependencies {
-    private func usersDependencies(testMode: Bool = false) {
+    private func cardDependencies(testMode: Bool = false) {
         if testMode {
-            @Provider var usersWebRepository = MockCardWebRepository() as CardWebRepository
+            @Provider var cardWebRepository = MockCardWebRepository() as CardWebRepository
         } else {
             let baseUrl = "https://api.scryfall.com"
             

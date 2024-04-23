@@ -11,8 +11,9 @@ struct ApplicationSwitcher: View {
     var body: some View {
         if !UserDefaults.standard.onBoardingShown {
             //OnboardingView()
+            ScanCardView()
         } else {
-            //ScanCardView()
+            ScanCardView()
         }
     }
 }

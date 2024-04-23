@@ -32,6 +32,8 @@
 		C0C3E01B2BCD76E600BF1993 /* ApplicationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E01A2BCD76E600BF1993 /* ApplicationSwitcher.swift */; };
 		C0C3E01D2BCD772900BF1993 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E01C2BCD772900BF1993 /* UserDefaults+Utils.swift */; };
 		C0C3E01F2BCD7A5F00BF1993 /* SplashScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E01E2BCD7A5F00BF1993 /* SplashScreenInteractor.swift */; };
+		C0C3E0222BCD7F8E00BF1993 /* ScanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0212BCD7F8E00BF1993 /* ScanCardView.swift */; };
+		C0C3E0262BCEC12D00BF1993 /* RoundedRectLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */; };
 		C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */; };
 		C0D93CA72BC169D000BDA302 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA62BC169D000BDA302 /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		C0C3E01A2BCD76E600BF1993 /* ApplicationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSwitcher.swift; sourceTree = "<group>"; };
 		C0C3E01C2BCD772900BF1993 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
 		C0C3E01E2BCD7A5F00BF1993 /* SplashScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInteractor.swift; sourceTree = "<group>"; };
+		C0C3E0212BCD7F8E00BF1993 /* ScanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardView.swift; sourceTree = "<group>"; };
+		C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectLabel.swift; sourceTree = "<group>"; };
 		C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWebRepository.swift; sourceTree = "<group>"; };
 		C0D93CA62BC169D000BDA302 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */,
+				C0C3E0242BCEC10600BF1993 /* CommonViews */,
 				C0B52AFD2BBB35F30012A66C /* DependencyInjection */,
 				C0B52AF92BBB34FC0012A66C /* DDBBRepositories */,
 				C0B52AFC2BBB35E10012A66C /* Extensions */,
@@ -227,6 +232,7 @@
 		C0C3E0122BCD726200BF1993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C0C3E0202BCD7D7100BF1993 /* ScanCard */,
 				C0C3E0132BCD727200BF1993 /* SplashScreen */,
 				C0C3E01A2BCD76E600BF1993 /* ApplicationSwitcher.swift */,
 			);
@@ -241,6 +247,22 @@
 				C0C3E0182BCD742F00BF1993 /* SplashScreenVM.swift */,
 			);
 			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		C0C3E0202BCD7D7100BF1993 /* ScanCard */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3E0212BCD7F8E00BF1993 /* ScanCardView.swift */,
+			);
+			path = ScanCard;
+			sourceTree = "<group>";
+		};
+		C0C3E0242BCEC10600BF1993 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */,
+			);
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,10 +395,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C3E0262BCEC12D00BF1993 /* RoundedRectLabel.swift in Sources */,
 				C0B52B012BBB362F0012A66C /* DependencyInjector.swift in Sources */,
 				C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */,
 				C0B52AFF2BBB36040012A66C /* Dependencies.swift in Sources */,
 				C0C3E0112BCD6D5700BF1993 /* CardDDBBRepository.swift in Sources */,
+				C0C3E0222BCD7F8E00BF1993 /* ScanCardView.swift in Sources */,
 				C0C3E0192BCD742F00BF1993 /* SplashScreenVM.swift in Sources */,
 				C0C3E0172BCD740100BF1993 /* SplashScreenView.swift in Sources */,
 				C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */,
@@ -561,6 +585,7 @@
 				DEVELOPMENT_TEAM = W94EEEX7Y4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = Scan;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -590,6 +615,7 @@
 				DEVELOPMENT_TEAM = W94EEEX7Y4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = Scan;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -11,7 +11,17 @@ final class SplashScreenVM: ObservableObject {
     // MARK: Pusblished properties
     @Published var splashScreenCompleted = false
     
+    private let interactor = SplashScreenInteractor()
+    
     @MainActor func initialSynch() async {
-        splashScreenCompleted = true
+        Task {
+            do {
+                try await interactor.initialSynch()
+                splashScreenCompleted = true
+            } catch {
+                print("Error doing initial synch")
+            }
+        }
+        
     }
 }
