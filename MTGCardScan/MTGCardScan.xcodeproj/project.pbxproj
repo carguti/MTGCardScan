@@ -34,6 +34,15 @@
 		C0C3E01F2BCD7A5F00BF1993 /* SplashScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E01E2BCD7A5F00BF1993 /* SplashScreenInteractor.swift */; };
 		C0C3E0222BCD7F8E00BF1993 /* ScanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0212BCD7F8E00BF1993 /* ScanCardView.swift */; };
 		C0C3E0262BCEC12D00BF1993 /* RoundedRectLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */; };
+		C0C3E0282BD812D600BF1993 /* NavBar+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0272BD812D600BF1993 /* NavBar+Utils.swift */; };
+		C0C3E02B2BD814A100BF1993 /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E02A2BD814A100BF1993 /* MainTab.swift */; };
+		C0C3E02E2BD8195200BF1993 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E02D2BD8195200BF1993 /* Localizable.swift */; };
+		C0C3E0322BD81A8800BF1993 /* TabBarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0312BD81A8800BF1993 /* TabBarIconView.swift */; };
+		C0C3E0342BD81BFF00BF1993 /* TabBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0332BD81BFF00BF1993 /* TabBarManager.swift */; };
+		C0C3E0362BD8219D00BF1993 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0352BD8219D00BF1993 /* TabBarView.swift */; };
+		C0C3E0382BD822CA00BF1993 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0372BD822CA00BF1993 /* Constants.swift */; };
+		C0C3E03A2BD827D700BF1993 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0392BD827D700BF1993 /* MainView.swift */; };
+		C0C3E03D2BD8372600BF1993 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0C3E03B2BD8372600BF1993 /* Localizable.strings */; };
 		C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */; };
 		C0D93CA72BC169D000BDA302 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA62BC169D000BDA302 /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +87,15 @@
 		C0C3E01E2BCD7A5F00BF1993 /* SplashScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInteractor.swift; sourceTree = "<group>"; };
 		C0C3E0212BCD7F8E00BF1993 /* ScanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardView.swift; sourceTree = "<group>"; };
 		C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectLabel.swift; sourceTree = "<group>"; };
+		C0C3E0272BD812D600BF1993 /* NavBar+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavBar+Utils.swift"; sourceTree = "<group>"; };
+		C0C3E02A2BD814A100BF1993 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
+		C0C3E02D2BD8195200BF1993 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		C0C3E0312BD81A8800BF1993 /* TabBarIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarIconView.swift; sourceTree = "<group>"; };
+		C0C3E0332BD81BFF00BF1993 /* TabBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarManager.swift; sourceTree = "<group>"; };
+		C0C3E0352BD8219D00BF1993 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		C0C3E0372BD822CA00BF1993 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C0C3E0392BD827D700BF1993 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C0C3E03C2BD8372600BF1993 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWebRepository.swift; sourceTree = "<group>"; };
 		C0D93CA62BC169D000BDA302 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,10 +156,12 @@
 				C0B52AFA2BBB35C70012A66C /* Interactors */,
 				C0B52AFB2BBB35D60012A66C /* Model */,
 				C0B52B062BBB36490012A66C /* Networking */,
-				C0B52B0F2BBB36830012A66C /* WebRepositories */,
 				C0C3E0122BCD726200BF1993 /* Screens */,
+				C0C3E02C2BD8193700BF1993 /* Utils */,
+				C0B52B0F2BBB36830012A66C /* WebRepositories */,
 				C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */,
 				C0B52AD52BBB2DDF0012A66C /* Preview Content */,
+				C0C3E03B2BD8372600BF1993 /* Localizable.strings */,
 			);
 			path = MTGCardScan;
 			sourceTree = "<group>";
@@ -198,6 +218,7 @@
 		C0B52AFC2BBB35E10012A66C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0C3E0272BD812D600BF1993 /* NavBar+Utils.swift */,
 				C0C3E01C2BCD772900BF1993 /* UserDefaults+Utils.swift */,
 			);
 			path = Extensions;
@@ -232,6 +253,7 @@
 		C0C3E0122BCD726200BF1993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C0C3E0292BD8144700BF1993 /* MainView */,
 				C0C3E0202BCD7D7100BF1993 /* ScanCard */,
 				C0C3E0132BCD727200BF1993 /* SplashScreen */,
 				C0C3E01A2BCD76E600BF1993 /* ApplicationSwitcher.swift */,
@@ -260,9 +282,38 @@
 		C0C3E0242BCEC10600BF1993 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				C0C3E0302BD81A3E00BF1993 /* TaBar */,
 				C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */,
 			);
 			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		C0C3E0292BD8144700BF1993 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3E02A2BD814A100BF1993 /* MainTab.swift */,
+				C0C3E0392BD827D700BF1993 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		C0C3E02C2BD8193700BF1993 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3E02D2BD8195200BF1993 /* Localizable.swift */,
+				C0C3E0372BD822CA00BF1993 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C0C3E0302BD81A3E00BF1993 /* TaBar */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3E0312BD81A8800BF1993 /* TabBarIconView.swift */,
+				C0C3E0332BD81BFF00BF1993 /* TabBarManager.swift */,
+				C0C3E0352BD8219D00BF1993 /* TabBarView.swift */,
+			);
+			path = TaBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0B52AD72BBB2DDF0012A66C /* Preview Assets.xcassets in Resources */,
+				C0C3E03D2BD8372600BF1993 /* Localizable.strings in Resources */,
 				C0B52AD42BBB2DDF0012A66C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,19 +448,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C3E0262BCEC12D00BF1993 /* RoundedRectLabel.swift in Sources */,
+				C0C3E03A2BD827D700BF1993 /* MainView.swift in Sources */,
 				C0B52B012BBB362F0012A66C /* DependencyInjector.swift in Sources */,
 				C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */,
 				C0B52AFF2BBB36040012A66C /* Dependencies.swift in Sources */,
+				C0C3E02B2BD814A100BF1993 /* MainTab.swift in Sources */,
+				C0C3E0282BD812D600BF1993 /* NavBar+Utils.swift in Sources */,
+				C0C3E0382BD822CA00BF1993 /* Constants.swift in Sources */,
 				C0C3E0112BCD6D5700BF1993 /* CardDDBBRepository.swift in Sources */,
 				C0C3E0222BCD7F8E00BF1993 /* ScanCardView.swift in Sources */,
 				C0C3E0192BCD742F00BF1993 /* SplashScreenVM.swift in Sources */,
 				C0C3E0172BCD740100BF1993 /* SplashScreenView.swift in Sources */,
 				C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */,
 				C0B52B082BBB365A0012A66C /* APICall.swift in Sources */,
+				C0C3E0362BD8219D00BF1993 /* TabBarView.swift in Sources */,
 				C0C3E00F2BCC3C7000BF1993 /* CardInteractor.swift in Sources */,
+				C0C3E02E2BD8195200BF1993 /* Localizable.swift in Sources */,
 				C0C3E01B2BCD76E600BF1993 /* ApplicationSwitcher.swift in Sources */,
+				C0C3E0322BD81A8800BF1993 /* TabBarIconView.swift in Sources */,
 				C0C3E01D2BCD772900BF1993 /* UserDefaults+Utils.swift in Sources */,
 				C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */,
+				C0C3E0342BD81BFF00BF1993 /* TabBarManager.swift in Sources */,
 				C0D93CA72BC169D000BDA302 /* Card.swift in Sources */,
 				C0C3E01F2BCD7A5F00BF1993 /* SplashScreenInteractor.swift in Sources */,
 			);
@@ -453,6 +513,17 @@
 			targetProxy = C0B52AE72BBB2DE00012A66C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C0C3E03B2BD8372600BF1993 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0C3E03C2BD8372600BF1993 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C0B52AEE2BBB2DE00012A66C /* Debug */ = {

@@ -51,7 +51,7 @@ struct ScanCardView: UIViewControllerRepresentable, View {
         scanButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scanButton.centerXAnchor.constraint(equalTo: scannerViewController.view.centerXAnchor),
-            scanButton.bottomAnchor.constraint(equalTo: scannerViewController.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            scanButton.bottomAnchor.constraint(equalTo: scannerViewController.view.safeAreaLayoutGuide.bottomAnchor, constant: -Measures.kTabBarHeight)
         ])
         
         return scannerViewController

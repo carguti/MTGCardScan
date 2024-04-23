@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  MTGCardScan
+
+  Created by Carlos Gutiérrez Casado on 23/4/24.
+  
+*/
+
+// MARK: - TabBar
+
+"TAB_BAR_SCAN"      = "Escanear";
+"TAB_BAR_SEARCH"    = "Buscar";
+"TAB_BAR_HISTORIAL" = "Historial";
+"TAB_BAR_FAVS"      = "Favoritos";
