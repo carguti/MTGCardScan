@@ -40,7 +40,7 @@ struct TabBarView<Tab: TabProtocol>: View where Tab.AllCases == Array<Tab> {
                 }
             }
         }
-        .background(.clear)
+        .background(Color(uiColor: .darkGray))
         .ignoresSafeArea()
         .frame(height: Measures.kTabBarHeight)
         .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: -1)
