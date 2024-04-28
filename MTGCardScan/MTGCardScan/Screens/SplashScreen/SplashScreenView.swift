@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SplashScreenView: View {
     @StateObject var splasScreenVM = SplashScreenVM()
+    
     var body: some View {
         NavigationStack {
             ZStack {

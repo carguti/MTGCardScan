@@ -12,3 +12,7 @@
 "TAB_BAR_SEARCH"    = "Buscar";
 "TAB_BAR_HISTORIAL" = "Historial";
 "TAB_BAR_FAVS"      = "Favoritos";
+
+// MARK: - Search View
+
+"SEARCH_VIEW_PLACEHOLDER" = "Buscar cartas";

@@ -9,6 +9,7 @@ import Foundation
 
 protocol CardWebRepository: WebRepository {
     func getCard(name: String) async throws -> Card
+    func getCardsNames(partialName: String) async throws -> CardNamesResult
 }
 
 struct RealCardWebRepository: CardWebRepository {
@@ -20,8 +21,14 @@ struct RealCardWebRepository: CardWebRepository {
         self.baseURL = baseURL
     }
     
+    // MARK: Get card
     func getCard(name: String) async throws -> Card {
         return try await call(endpoint: API.card(name: name))
+    }
+    
+    // MARK: Get cards names
+    func getCardsNames(partialName: String) async throws -> CardNamesResult {
+        return try await call(endpoint: API.cardsNames(partialName: partialName))
     }
 }
 
@@ -29,6 +36,7 @@ struct MockCardWebRepository: CardWebRepository {
     let session: URLSession = .mockedResponsesOnly
     let baseURL = "https://test.com"
     
+    // MARK: Get card
     func getCard(name: String) async throws -> Card {
         let id = "8d94b8ec-ecda-43c8-a60e-1ba33e6a54a4"
         let cardName = "Edgar Markov"
@@ -53,11 +61,26 @@ struct MockCardWebRepository: CardWebRepository {
         
         return Card(id: id, name: cardName, lang: lang, legalities: legalities, foil: foil, noFoil: noFoil, prices: prices, imageUris: imageUris, relatedUris: relatedUris, cardFaces: nil)
     }
+    
+    // MARK: Get cards names
+    func getCardsNames(partialName: String) async throws -> CardNamesResult {
+        let object = "catalog"
+        let totalValues = 5
+        let cardsNames = [
+            "Edgar Markov",
+            "Edgar's Awakening",
+            "Edgar, Charmed Groom // Edgar Markov's Coffin",
+            "Kami of the Tended Garden",
+            "Case of the Trampled Garden"
+        ]
+        return CardNamesResult(object: object, totalValues: totalValues, cardsNames: cardsNames)
+    }
 }
 
 extension RealCardWebRepository {
     enum API {
         case card(name: String)
+        case cardsNames(partialName: String)
     }
 }
 
@@ -66,12 +89,16 @@ extension RealCardWebRepository.API: APICall {
         switch self {
         case .card(let name):
             return "/cards/named?fuzzy=\(name.replacingOccurrences(of: " ", with: "+"))"
+        case .cardsNames(let partialName):
+            return "/cards/autocomplete?q=\(partialName.replacingOccurrences(of: " ", with: "+"))"
         }
     }
         
     var method: HTTPMethod {
         switch self {
         case .card:
+            return .get
+        case .cardsNames:
             return .get
         }
     }
@@ -86,6 +113,8 @@ extension RealCardWebRepository.API: APICall {
     func body() throws -> Data? {
         switch self {
         case .card:
+            return nil
+        case .cardsNames:
             return nil
         }
     }
