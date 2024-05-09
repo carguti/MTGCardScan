@@ -7,7 +7,16 @@
 
 import Foundation
 
-struct Card: Codable, Identifiable {
+struct Card: Codable, Identifiable, Hashable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+    }
+    
     let id: String
     let name: String
     let lang: String
@@ -52,8 +61,8 @@ struct Legalities: Codable {
 }
 
 struct Prices: Codable {
-    let euro: Float?
-    let euroFoil: Float?
+    let euro: String?
+    let euroFoil: String?
     
     enum CodingKeys: String, CodingKey {
         case euro = "eur"

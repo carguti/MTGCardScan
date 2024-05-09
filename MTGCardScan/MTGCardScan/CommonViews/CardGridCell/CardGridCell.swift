@@ -1,19 +1,19 @@
 //
-//  CardListCell.swift
+//  CardGridCell.swift
 //  MTGCardScan
 //
-//  Created by Carlos Gutiérrez Casado on 28/4/24.
+//  Created by Carlos Gutiérrez Casado on 9/5/24.
 //
 
 import SwiftUI
 import SDWebImage
 
-struct CardListCell: View {
+struct CardGridCell: View {
     let card: Card?
     
     var body: some View {
         ZStack {
-            HStack {
+            VStack(spacing: 2) {
                 AsyncImage(url: URL(string: card?.imageUris?.normal ?? "")) { image in
                     image.resizable()
                 } placeholder: {
@@ -23,10 +23,11 @@ struct CardListCell: View {
                 .clipShape(.rect(cornerRadius: 12))
                 
                 Text(card?.name ?? "-")
-                    .font(.system(size: 16))
+                    .font(.system(size: 14))
                     .padding()
                     .foregroundColor(.white)
                     .background(.clear)
+                    .multilineTextAlignment(.center)
                 
                 Spacer()
             }
@@ -34,4 +35,3 @@ struct CardListCell: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-

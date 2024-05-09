@@ -6,6 +6,9 @@
   
 */
 
+// MARK: - Common
+"SEARCH" = "Buscar";
+
 // MARK: - TabBar
 
 "TAB_BAR_SCAN"      = "Escanear";
@@ -15,4 +18,5 @@
 
 // MARK: - Search View
 
-"SEARCH_VIEW_PLACEHOLDER" = "Buscar cartas";
+"SEARCH_VIEW_PLACEHOLDER" = "Introduce el nombre de la carta";
+"SEARCH_CARDS_BY_NAME" = "Buscar cartas";

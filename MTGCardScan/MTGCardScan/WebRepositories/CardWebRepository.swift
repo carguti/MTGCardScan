@@ -49,7 +49,7 @@ struct MockCardWebRepository: CardWebRepository {
                                     pauper: "not_legal")
         let foil = true
         let noFoil = false
-        let prices = Prices(euro: nil, euroFoil: 92.31)
+        let prices = Prices(euro: nil, euroFoil: "92.31")
         let imageUris = Images(small: "https://cards.scryfall.io/small/front/8/d/8d94b8ec-ecda-43c8-a60e-1ba33e6a54a4.jpg?1562616128",
                                normal: "https://cards.scryfall.io/normal/front/8/d/8d94b8ec-ecda-43c8-a60e-1ba33e6a54a4.jpg?1562616128",
                                large: "https://cards.scryfall.io/large/front/8/d/8d94b8ec-ecda-43c8-a60e-1ba33e6a54a4.jpg?1562616128",

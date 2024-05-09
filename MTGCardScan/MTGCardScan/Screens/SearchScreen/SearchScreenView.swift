@@ -11,6 +11,28 @@ struct SearchScreenView: View {
     @StateObject var searchScreenVM: SearchScreenVM
     
     @State private var cardName = ""
+    var cardNames: [String] = []
+    var cardImagesUrls: [String] = []
+    
+    private let adaptiveColumn = [
+        GridItem(.fixed(150)),
+        GridItem(.fixed(150))
+    ]
+    
+    @State private var resultsMode = ResultsMode.list
+    
+    private enum ResultsMode {
+        case list, grid
+        
+        func icon() -> String {
+            switch self {
+            case .list:
+                return "rectangle.3.offgrid.fill"
+            case .grid:
+                return "rectangle.grid.1x2"
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -18,8 +40,7 @@ struct SearchScreenView: View {
                 searchView
                 
                 resultsView
-                    .background(.clear)
-                    .opacity(searchScreenVM.cardNamesStrings.count > 0 ? 1 : 0)
+                    .opacity(searchScreenVM.cardsByName.count > 0 ? 1 : 0)
                 
                 Spacer()
             }
@@ -39,25 +60,55 @@ struct SearchScreenView: View {
     // MARK: searchFields view
     private var searchView: some View {
         ZStack(alignment: .leading) {
-            HStack(spacing: 8) {
-                Image(systemName: "magnifyingglass")
+            VStack(spacing: 20) {
+                Text("SEARCH_CARDS_BY_NAME".localized)
+                    .font(.system(size: 28).bold())
                     .foregroundColor(Color(uiColor: .white))
                 
-                TextField("SEARCH_VIEW_PLACEHOLDER".localized, text: $cardName)
-                    .foregroundColor(Color(uiColor: .white))
-                    .onChange(of: cardName) {
-                        Task {
-                            await searchScreenVM.gerCards(cardName: cardName)
-                        }
+                HStack(spacing: 8) {
+                    TextField("SEARCH_VIEW_PLACEHOLDER".localized, text: $cardName)
+                        .foregroundColor(Color(uiColor: .white))
+                    
+                    Button {
+                        cardName = ""
+                    } label: {
+                        Image(systemName: "multiply.circle.fill")
                     }
+                    .opacity(cardName.count >= 3 ? 1 : 0)
+                    .foregroundColor(.white)
+                    .padding(.trailing, 4)
+                }
+                .frame(height: 32)
+                .padding(.horizontal, 12)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.gray)
+                )
                 
+                Button(action: {
+                    Task {
+                        await searchScreenVM.getCard(cardName: cardName)
+                    }
+                }, label: {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(Color(uiColor: .white))
+                        
+                        Text("SEARCH".localized)
+                            .font(.system(size: 16).bold())
+                            .foregroundColor(Color(uiColor: .white))
+                    }
+                    .frame(height: 46)
+                    .padding(.horizontal, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.gray)
+                    )
+                    
+                })
+                .opacity(cardName.count >= 3 ? 1 : 0)
             }
-            .frame(height: 32)
-            .padding(.horizontal, 12)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.gray)
-            )
+            
         }
         .padding(.top, 20)
         .padding(.horizontal, 20)
@@ -65,13 +116,41 @@ struct SearchScreenView: View {
     
     // MARK: searchFields view
     private var resultsView: some View {
-        List {
-            ForEach(searchScreenVM.cardNamesStrings, id: \.self) { cardName in
-                CardListCell(cardName: cardName)
-                    .listRowBackground(Color.clear)
+        VStack {
+            Button(action: {
+                resultsMode = resultsMode == .grid ? .list : .grid
+            }) {
+                HStack {
+                    Image(systemName: resultsMode.icon()).imageScale(.medium)
+                        .foregroundColor(.white)
+                }
+                .frame(width: 32, height: 32)
+            }
+            
+            if resultsMode == .grid {
+                ScrollView{
+                    LazyVGrid(columns: adaptiveColumn, spacing: 20) {
+                        ForEach(searchScreenVM.cardsByName, id: \.self) { card in
+                            CardGridCell(card: card)
+                                .listRowBackground(Color.clear)
+                        }
+                    }
+                    
+                    Spacer()
+                }
+            } else {
+                List {
+                    ForEach(searchScreenVM.cardsByName, id: \.self) { card in
+                        CardListCell(card: card)
+                            .listRowBackground(Color.clear)
+                    }
+                }
+                .scrollContentBackground(.hidden)
+                
+                Spacer()
             }
         }
-        .scrollContentBackground(.hidden)
+        
     }
 }
 

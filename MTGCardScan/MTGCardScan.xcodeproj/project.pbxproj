@@ -25,6 +25,7 @@
 		C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
 		C0B52B0D2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
 		C0B52B0E2BBB36700012A66C /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52B0B2BBB36700012A66C /* WebRepository.swift */; };
+		C0C327682BEC9F7D005D5688 /* CardGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C327672BEC9F7D005D5688 /* CardGridCell.swift */; };
 		C0C3E00F2BCC3C7000BF1993 /* CardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E00E2BCC3C7000BF1993 /* CardInteractor.swift */; };
 		C0C3E0112BCD6D5700BF1993 /* CardDDBBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0102BCD6D5700BF1993 /* CardDDBBRepository.swift */; };
 		C0C3E0172BCD740100BF1993 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0162BCD740100BF1993 /* SplashScreenView.swift */; };
@@ -49,6 +50,7 @@
 		C0C3E04B2BDD64B500BF1993 /* CardNamesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E04A2BDD64B500BF1993 /* CardNamesResult.swift */; };
 		C0C3E04D2BDD85E700BF1993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E04C2BDD85E600BF1993 /* AppDelegate.swift */; };
 		C0C3E0512BDEB3FA00BF1993 /* CardListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0502BDEB3FA00BF1993 /* CardListCell.swift */; };
+		C0C3E0542BE29BDA00BF1993 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C0C3E0532BE29BDA00BF1993 /* SDWebImage */; };
 		C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */; };
 		C0D93CA72BC169D000BDA302 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA62BC169D000BDA302 /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +86,7 @@
 		C0B52B002BBB362F0012A66C /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		C0B52B072BBB365A0012A66C /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		C0B52B0B2BBB36700012A66C /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
+		C0C327672BEC9F7D005D5688 /* CardGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGridCell.swift; sourceTree = "<group>"; };
 		C0C3E00E2BCC3C7000BF1993 /* CardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInteractor.swift; sourceTree = "<group>"; };
 		C0C3E0102BCD6D5700BF1993 /* CardDDBBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDDBBRepository.swift; sourceTree = "<group>"; };
 		C0C3E0162BCD740100BF1993 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C3E0542BE29BDA00BF1993 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +268,14 @@
 			path = WebRepositories;
 			sourceTree = "<group>";
 		};
+		C0C327662BEC9F69005D5688 /* CardGridCell */ = {
+			isa = PBXGroup;
+			children = (
+				C0C327672BEC9F7D005D5688 /* CardGridCell.swift */,
+			);
+			path = CardGridCell;
+			sourceTree = "<group>";
+		};
 		C0C3E0122BCD726200BF1993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +309,7 @@
 		C0C3E0242BCEC10600BF1993 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				C0C327662BEC9F69005D5688 /* CardGridCell */,
 				C0C3E04F2BDEB3DA00BF1993 /* CardListCell */,
 				C0C3E0302BD81A3E00BF1993 /* TaBar */,
 				C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */,
@@ -366,6 +379,9 @@
 			dependencies = (
 			);
 			name = MTGCardScan;
+			packageProductDependencies = (
+				C0C3E0532BE29BDA00BF1993 /* SDWebImage */,
+			);
 			productName = MTGCardScan;
 			productReference = C0B52ACC2BBB2DDD0012A66C /* MTGCardScan.app */;
 			productType = "com.apple.product-type.application";
@@ -438,6 +454,9 @@
 				Base,
 			);
 			mainGroup = C0B52AC32BBB2DDD0012A66C;
+			packageReferences = (
+				C0C3E0522BE29BDA00BF1993 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = C0B52ACD2BBB2DDD0012A66C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -500,6 +519,7 @@
 				C0B52B082BBB365A0012A66C /* APICall.swift in Sources */,
 				C0C3E0362BD8219D00BF1993 /* TabBarView.swift in Sources */,
 				C0C3E00F2BCC3C7000BF1993 /* CardInteractor.swift in Sources */,
+				C0C327682BEC9F7D005D5688 /* CardGridCell.swift in Sources */,
 				C0C3E02E2BD8195200BF1993 /* Localizable.swift in Sources */,
 				C0C3E0472BDD608F00BF1993 /* SearchScreenVM.swift in Sources */,
 				C0C3E0512BDEB3FA00BF1993 /* CardListCell.swift in Sources */,
@@ -861,6 +881,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C0C3E0522BE29BDA00BF1993 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C0C3E0532BE29BDA00BF1993 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0C3E0522BE29BDA00BF1993 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C0B52AC42BBB2DDD0012A66C /* Project object */;
 }
