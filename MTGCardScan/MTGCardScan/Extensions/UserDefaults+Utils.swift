@@ -66,13 +66,76 @@ extension UserDefaults {
     
     // MARK: - OnBoarding shown
     var onBoardingShown: Bool {
-        get{
+        get {
             guard let onBoardingShown = get(objectType: Bool.self, forKey: UserDefaultsOnBoardingKeys.kOnBoardingShown) else { return false }
             return onBoardingShown
         }
         
         set {
             set(object: newValue, forKey: UserDefaultsOnBoardingKeys.kOnBoardingShown)
+            
+            synchronize()
+        }
+    }
+}
+
+// MARK: - Selected card image
+extension UserDefaults {
+    struct UserDefaultsSelectedCardImageKeys {
+        static let kSelectedCardImageUri = "SelectedCardImageUri"
+    }
+    
+    // MARK: - Get fav cards
+    var selectedCardImageUri: String {
+        get {
+            guard let selectedCardImageUri = get(objectType: String.self, forKey: UserDefaultsSelectedCardImageKeys.kSelectedCardImageUri) else { return "" }
+            return selectedCardImageUri
+        }
+        
+        set {
+            set(object: newValue, forKey: UserDefaultsSelectedCardImageKeys.kSelectedCardImageUri)
+            
+            synchronize()
+        }
+    }
+}
+
+// MARK: - Selected card edition
+extension UserDefaults {
+    struct UserDefaultsSelectedCardEditionKeys {
+        static let kSelectedCardEdition = "SelectedCardEdition"
+    }
+    
+    // MARK: - Get fav cards
+    var selectedCardEdition: String {
+        get {
+            guard let selectedCardEdition = get(objectType: String.self, forKey: UserDefaultsSelectedCardEditionKeys.kSelectedCardEdition) else { return "" }
+            return selectedCardEdition
+        }
+        
+        set {
+            set(object: newValue, forKey: UserDefaultsSelectedCardEditionKeys.kSelectedCardEdition)
+            
+            synchronize()
+        }
+    }
+}
+
+// MARK: - Fav cards
+extension UserDefaults {
+    struct UserDefaultsFavCardsKeys {
+        static let kFavCards = "FavCards"
+    }
+    
+    // MARK: - Get fav cards
+    var favCards: [Card] {
+        get {
+            guard let favCards = get(objectType: [Card].self, forKey: UserDefaultsFavCardsKeys.kFavCards) else { return [] }
+            return favCards
+        }
+        
+        set {
+            set(object: newValue, forKey: UserDefaultsFavCardsKeys.kFavCards)
             
             synchronize()
         }

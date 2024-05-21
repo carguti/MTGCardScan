@@ -12,6 +12,7 @@ struct MainView: View {
     @StateObject var mainTabBarManager = TabBarManager<MainTab>()
     
     @StateObject var searchScreenVM = SearchScreenVM(interactor: SearchScreenInteractor())
+    @StateObject var searchResultVM = SearchResultVM(interactor: SearchResultInteractor())
     
     @State var tabOptionPressed: Int = 0
     @State var destinationViewTitle: String = ""
@@ -48,7 +49,7 @@ struct MainView: View {
         case .scanView:
             ScanCardView()
         case .searchView:
-            SearchScreenView(searchScreenVM: searchScreenVM)
+            SearchScreenView(searchScreenVM: searchScreenVM, searchResultVM: searchResultVM)
         case .historialView:
             EmptyView()
         case .favouritesView:

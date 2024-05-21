@@ -27,6 +27,8 @@ struct Card: Codable, Identifiable, Hashable {
     let imageUris: Images?
     let relatedUris: RelatedUris
     let cardFaces: [CardFace]?
+    let printsSearchUri: String
+    let purchaseUris: PurchaseUris
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -39,6 +41,8 @@ struct Card: Codable, Identifiable, Hashable {
         case imageUris = "image_uris"
         case relatedUris = "related_uris"
         case cardFaces = "card_faces"
+        case printsSearchUri = "prints_search_uri"
+        case purchaseUris = "purchase_uris"
     }
 }
 
@@ -90,6 +94,10 @@ struct Images: Codable {
 
 struct RelatedUris: Codable {
     let edhrec: String
+}
+
+struct PurchaseUris: Codable {
+    let cardmarket: String
 }
 
 struct CardFace: Codable {
