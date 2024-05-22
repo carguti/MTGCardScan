@@ -52,7 +52,6 @@
 		C0C3E04B2BDD64B500BF1993 /* CardNamesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E04A2BDD64B500BF1993 /* CardNamesResult.swift */; };
 		C0C3E04D2BDD85E700BF1993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E04C2BDD85E600BF1993 /* AppDelegate.swift */; };
 		C0C3E0512BDEB3FA00BF1993 /* CardListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0502BDEB3FA00BF1993 /* CardListCell.swift */; };
-		C0C3E0542BE29BDA00BF1993 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C0C3E0532BE29BDA00BF1993 /* SDWebImage */; };
 		C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */; };
 		C0D93CA72BC169D000BDA302 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA62BC169D000BDA302 /* Card.swift */; };
 		C0DE93612BF51C650032A3E7 /* CardPrints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE93602BF51C650032A3E7 /* CardPrints.swift */; };
@@ -134,7 +133,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C3E0542BE29BDA00BF1993 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +423,6 @@
 			);
 			name = MTGCardScan;
 			packageProductDependencies = (
-				C0C3E0532BE29BDA00BF1993 /* SDWebImage */,
 			);
 			productName = MTGCardScan;
 			productReference = C0B52ACC2BBB2DDD0012A66C /* MTGCardScan.app */;
@@ -500,7 +497,6 @@
 			);
 			mainGroup = C0B52AC32BBB2DDD0012A66C;
 			packageReferences = (
-				C0C3E0522BE29BDA00BF1993 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = C0B52ACD2BBB2DDD0012A66C /* Products */;
 			projectDirPath = "";
@@ -933,25 +929,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C0C3E0522BE29BDA00BF1993 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.19.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C0C3E0532BE29BDA00BF1993 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0C3E0522BE29BDA00BF1993 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C0B52AC42BBB2DDD0012A66C /* Project object */;
 }

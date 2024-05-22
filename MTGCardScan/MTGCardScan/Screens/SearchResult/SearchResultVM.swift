@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImage
 
 class SearchResultVM: ObservableObject {
     private var interactor = SearchResultInteractor()

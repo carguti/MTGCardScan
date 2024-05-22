@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImage
 
 class SearchScreenVM: ObservableObject {
     private var interactor = SearchScreenInteractor()
