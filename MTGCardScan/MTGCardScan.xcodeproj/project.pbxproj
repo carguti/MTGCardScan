@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C008FB5F2BFDC59C0042CB02 /* CardsHistorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008FB5E2BFDC59C0042CB02 /* CardsHistorialView.swift */; };
 		C03501DF2BFA3AD0000F6D2F /* LegalitiesGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03501DE2BFA3AD0000F6D2F /* LegalitiesGridCell.swift */; };
 		C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */; };
 		C0B52AD42BBB2DDF0012A66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C008FB5E2BFDC59C0042CB02 /* CardsHistorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsHistorialView.swift; sourceTree = "<group>"; };
 		C03501DE2BFA3AD0000F6D2F /* LegalitiesGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalitiesGridCell.swift; sourceTree = "<group>"; };
 		C0B52ACC2BBB2DDD0012A66C /* MTGCardScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGCardScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardScanApp.swift; sourceTree = "<group>"; };
@@ -153,6 +155,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C008FB5D2BFDC4600042CB02 /* CardsHistorial */ = {
+			isa = PBXGroup;
+			children = (
+				C008FB5E2BFDC59C0042CB02 /* CardsHistorialView.swift */,
+			);
+			path = CardsHistorial;
+			sourceTree = "<group>";
+		};
 		C03501DD2BFA3AB8000F6D2F /* LegalitiesGridCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +321,7 @@
 		C0C3E0122BCD726200BF1993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C008FB5D2BFDC4600042CB02 /* CardsHistorial */,
 				C0C3E0292BD8144700BF1993 /* MainView */,
 				C0C3E0202BCD7D7100BF1993 /* ScanCard */,
 				C0C3E0432BDD602A00BF1993 /* SearchScreen */,
@@ -544,6 +555,7 @@
 				C0C3E0262BCEC12D00BF1993 /* RoundedRectLabel.swift in Sources */,
 				C0C3276C2BEDEBC6005D5688 /* SearchResultView.swift in Sources */,
 				C0C3E04B2BDD64B500BF1993 /* CardNamesResult.swift in Sources */,
+				C008FB5F2BFDC59C0042CB02 /* CardsHistorialView.swift in Sources */,
 				C0C3E03A2BD827D700BF1993 /* MainView.swift in Sources */,
 				C0B52B012BBB362F0012A66C /* DependencyInjector.swift in Sources */,
 				C0C3E04D2BDD85E700BF1993 /* AppDelegate.swift in Sources */,

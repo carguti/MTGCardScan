@@ -51,7 +51,7 @@ struct MainView: View {
         case .searchView:
             SearchScreenView(searchScreenVM: searchScreenVM, searchResultVM: searchResultVM)
         case .historialView:
-            EmptyView()
+            CardsHistorialView(searchResultVM: searchResultVM)
         case .favouritesView:
             EmptyView()
         }

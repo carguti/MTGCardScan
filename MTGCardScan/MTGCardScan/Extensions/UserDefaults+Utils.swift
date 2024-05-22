@@ -141,3 +141,24 @@ extension UserDefaults {
         }
     }
 }
+
+// MARK: - Historial cards
+extension UserDefaults {
+    struct UserDefaultsCardsHistorialKeys {
+        static let kCardsHistorial = "CardsHistorial"
+    }
+    
+    // MARK: - Get fav cards
+    var cardsHistorial: [Card] {
+        get {
+            guard let favCards = get(objectType: [Card].self, forKey: UserDefaultsCardsHistorialKeys.kCardsHistorial) else { return [] }
+            return favCards
+        }
+        
+        set {
+            set(object: newValue, forKey: UserDefaultsCardsHistorialKeys.kCardsHistorial)
+            
+            synchronize()
+        }
+    }
+}

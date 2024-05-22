@@ -132,8 +132,14 @@ struct SearchScreenView: View {
                 ScrollView{
                     LazyVGrid(columns: adaptiveColumn, spacing: 20) {
                         ForEach(searchScreenVM.cardsByName, id: \.self) { card in
-                            CardGridCell(card: card)
-                                .listRowBackground(Color.clear)
+                            NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, card: card)) {
+                                CardGridCell(card: card)
+                                    .listRowBackground(Color.clear)
+                            }
+                            .listRowBackground(Color.clear)
+                            .foregroundColor(.clear)
+                            .background(.clear)
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                     
@@ -159,8 +165,4 @@ struct SearchScreenView: View {
         }
         
     }
-}
-
-#Preview {
-    SearchScreenView(searchScreenVM: .testVM, searchResultVM: .testVM)
 }

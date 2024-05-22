@@ -65,6 +65,11 @@ struct SearchResultView: View {
             .padding(.top, 26)
             
         })
+        .onAppear {
+            if !UserDefaults.standard.cardsHistorial.contains(card) {
+                UserDefaults.standard.cardsHistorial.append(card)
+            }
+        }
         
     }
     
