@@ -29,6 +29,7 @@ class Dependencies {
     
     func provideDependencies(testMode: Bool = false) {
         cardDependencies(testMode: testMode)
+        cardPrintsDepedencies(testMode: testMode)
     }
     
     // MARK: - Private methods
@@ -45,7 +46,7 @@ class Dependencies {
     }
 }
 
-// MARK: - Login dependencies
+// MARK: - Card dependencies
 
 extension Dependencies {
     private func cardDependencies(testMode: Bool = false) {
@@ -55,6 +56,19 @@ extension Dependencies {
             let baseUrl = "https://api.scryfall.com"
             
             @Provider var cardWebRepository = RealCardWebRepository(session: session, baseURL: baseUrl) as CardWebRepository
+        }
+    }
+}
+
+// MARK: - Card prints
+extension Dependencies {
+    private func cardPrintsDepedencies(testMode: Bool = false) {
+        if testMode {
+            @Provider var cardPrintsRepository = MockCardPrintsWebRepository() as CardPrintsWebRepository
+        } else {
+            let baseUrl = ""
+            
+            @Provider var cardWebRepository = RealCardPrintsWebRepository(session: session, baseURL: baseUrl) as CardPrintsWebRepository
         }
     }
 }

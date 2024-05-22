@@ -20,3 +20,8 @@
 
 "SEARCH_VIEW_PLACEHOLDER" = "Introduce el nombre de la carta";
 "SEARCH_CARDS_BY_NAME" = "Buscar cartas";
+
+// MARK: - Result View
+
+"RESULT_PRICES_TITLE"   = "Precios";
+"RESULT_LEGALITY_TITLE" = "Legalidad";

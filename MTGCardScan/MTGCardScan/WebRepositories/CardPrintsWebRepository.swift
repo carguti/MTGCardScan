@@ -1,18 +1,17 @@
 //
-//  CardWebRepository.swift
+//  CardPrintsWebRepository.swift
 //  MTGCardScan
 //
-//  Created by Carlos Gutiérrez Casado on 6/4/24.
+//  Created by Carlos Gutiérrez Casado on 15/5/24.
 //
 
 import Foundation
 
-protocol CardWebRepository: WebRepository {
-    func getCard(name: String) async throws -> Card
-    func getCardsNames(partialName: String) async throws -> CardNamesResult
+protocol CardPrintsWebRepository: WebRepository {
+    func getCardPrints(printsUri: String) async throws -> CardPrints
 }
 
-struct RealCardWebRepository: CardWebRepository {
+struct RealCardPrintsWebRepository: CardPrintsWebRepository {
     let session: URLSession
     let baseURL: String
     
@@ -21,27 +20,45 @@ struct RealCardWebRepository: CardWebRepository {
         self.baseURL = baseURL
     }
     
-    // MARK: Get card
-    func getCard(name: String) async throws -> Card {
-        return try await call(endpoint: API.card(name: name))
-    }
-    
-    // MARK: Get cards names
-    func getCardsNames(partialName: String) async throws -> CardNamesResult {
-        return try await call(endpoint: API.cardsNames(partialName: partialName))
+    // MARK: Get card prints
+    func getCardPrints(printsUri: String) async throws -> CardPrints {
+        return try await call(endpoint: API.cardPrints(printsUri: printsUri))
     }
 }
 
-struct MockCardWebRepository: CardWebRepository {
+struct MockCardPrintsWebRepository: CardPrintsWebRepository {
+    
     let session: URLSession = .mockedResponsesOnly
     let baseURL = "https://test.com"
     
-    // MARK: Get card
+    // MARK: Get card prints
+    func getCardPrints(printsUri: String) async throws -> CardPrints {
+        let id = "8c936967-b8eb-4d32-a6cc-c6bb006023d3"
+        let name = "Edgar Markov"
+        let object = "list"
+        let totalCards = 4
+        let hasMore = false
+        let prices = Prices(euro: nil, euroFoil: "235.59")
+        let imagesUris = Images(small: "https://cards.scryfall.io/small/front/8/c/8c936967-b8eb-4d32-a6cc-c6bb006023d3.jpg?1641097591",
+                                normal: "https://cards.scryfall.io/normal/front/8/c/8c936967-b8eb-4d32-a6cc-c6bb006023d3.jpg?1641097591",
+                                large: "https://cards.scryfall.io/large/front/8/c/8c936967-b8eb-4d32-a6cc-c6bb006023d3.jpg?1641097591",
+                                png: "https://cards.scryfall.io/png/front/8/c/8c936967-b8eb-4d32-a6cc-c6bb006023d3.png?1641097591",
+                                artCrop: "https://cards.scryfall.io/art_crop/front/8/c/8c936967-b8eb-4d32-a6cc-c6bb006023d3.jpg?1641097591",
+                                borderCrop: "https://cards.scryfall.io/border_crop/front/8/c/8c936967-b8eb-4d32-a6cc-c6bb006023d3.jpg?1641097591")
+        let purchaseUris = PurchaseUris(cardmarket: "https://www.cardmarket.com/en/Magic/Products/Singles/Judge-Rewards-Promos/Edgar-Markov?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall")
+        
+        let cardPintsInfo = [CardPrintsInfo(id: id, name: name, setName: "Judge Gift Cards 2021", prices: prices, imageUris: imagesUris, purchaseUris: purchaseUris)]
+        
+        return CardPrints(object: object, totalCards: totalCards, hasMore: hasMore, cardPrints: cardPintsInfo)
+    }
+    
+    
+    
     func getCard(name: String) async throws -> Card {
         let id = "8d94b8ec-ecda-43c8-a60e-1ba33e6a54a4"
         let cardName = "Edgar Markov"
         let lang = "en"
-        let legalities = Legalities(standard: "not_legal", 
+        let legalities = Legalities(standard: "not_legal",
                                     modern: "not_legal",
                                     legacy: "not_legal",
                                     commander: "legal",
@@ -79,28 +96,23 @@ struct MockCardWebRepository: CardWebRepository {
     }
 }
 
-extension RealCardWebRepository {
+extension RealCardPrintsWebRepository {
     enum API {
-        case card(name: String)
-        case cardsNames(partialName: String)
+        case cardPrints(printsUri: String)
     }
 }
 
-extension RealCardWebRepository.API: APICall {
+extension RealCardPrintsWebRepository.API: APICall {
     var path: String {
         switch self {
-        case .card(let name):
-            return "/cards/named?fuzzy=\(name.replacingOccurrences(of: " ", with: "+"))"
-        case .cardsNames(let partialName):
-            return "/cards/autocomplete?q=\(partialName.replacingOccurrences(of: " ", with: "+"))"
+        case .cardPrints(let printsUri):
+            return "\(printsUri)"
         }
     }
         
     var method: HTTPMethod {
         switch self {
-        case .card:
-            return .get
-        case .cardsNames:
+        case .cardPrints:
             return .get
         }
     }
@@ -114,19 +126,11 @@ extension RealCardWebRepository.API: APICall {
         
     func body() throws -> Data? {
         switch self {
-        case .card:
-            return nil
-        case .cardsNames:
+        case .cardPrints:
             return nil
         }
     }
 }
 
-extension URLSession {
-    static var mockedResponsesOnly: URLSession {
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 1
-        configuration.timeoutIntervalForResource = 1
-        return URLSession(configuration: configuration)
-    }
-}
+
+

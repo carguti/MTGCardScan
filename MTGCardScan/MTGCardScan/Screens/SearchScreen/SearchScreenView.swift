@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchScreenView: View {
     @StateObject var searchScreenVM: SearchScreenVM
+    @StateObject var searchResultVM: SearchResultVM
     
     @State private var cardName = ""
     var cardNames: [String] = []
@@ -141,8 +142,14 @@ struct SearchScreenView: View {
             } else {
                 List {
                     ForEach(searchScreenVM.cardsByName, id: \.self) { card in
-                        CardListCell(card: card)
-                            .listRowBackground(Color.clear)
+                        NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, card: card)) {
+                            CardListCell(card: card)
+                                .listRowBackground(Color.clear)
+                        }
+                        .listRowBackground(Color.clear)
+                        .foregroundColor(.clear)
+                        .background(.clear)
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .scrollContentBackground(.hidden)
@@ -155,5 +162,5 @@ struct SearchScreenView: View {
 }
 
 #Preview {
-    SearchScreenView(searchScreenVM: .testVM)
+    SearchScreenView(searchScreenVM: .testVM, searchResultVM: .testVM)
 }
