@@ -30,6 +30,8 @@ class Dependencies {
     func provideDependencies(testMode: Bool = false) {
         cardDependencies(testMode: testMode)
         cardPrintsDepedencies(testMode: testMode)
+        cardsHistorialDepedencies(testMode: testMode)
+        favCardsDepedencies(testMode: testMode)
     }
     
     // MARK: - Private methods
@@ -69,6 +71,28 @@ extension Dependencies {
             let baseUrl = ""
             
             @Provider var cardWebRepository = RealCardPrintsWebRepository(session: session, baseURL: baseUrl) as CardPrintsWebRepository
+        }
+    }
+}
+
+// MARK: - Cards historial
+extension Dependencies {
+    private func cardsHistorialDepedencies(testMode: Bool = false) {
+        if testMode {
+            @Provider var cardsHistorialRepository = MockCardsHistorialDDBBRepository() as CardsHistorialDDBBRepository
+        } else {
+            @Provider var cardsHistorialWebRepository = RealCardsHistorialDDBBRepository() as CardsHistorialDDBBRepository
+        }
+    }
+}
+
+// MARK: - Fav cards
+extension Dependencies {
+    private func favCardsDepedencies(testMode: Bool = false) {
+        if testMode {
+            @Provider var favCardsRepository = MockFavouritesCardsDDBBRepository() as FavouritesCardsDDBBRepository
+        } else {
+            @Provider var favCardsWebRepository = RealFavouritesCardsDDBBRepository() as FavouritesCardsDDBBRepository
         }
     }
 }

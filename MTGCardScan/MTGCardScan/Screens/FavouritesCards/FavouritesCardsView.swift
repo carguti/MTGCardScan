@@ -1,5 +1,5 @@
 //
-//  CardsHistorialView.swift
+//  FavouritesCardsView.swift
 //  MTGCardScan
 //
 //  Created by Carlos Gutiérrez Casado on 22/5/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardsHistorialView: View {
+struct FavouritesCardsView: View {
     @StateObject var searchResultVM: SearchResultVM
     @StateObject var cardsHistorialVM: CardsHistorialVM
     
@@ -33,7 +33,7 @@ struct CardsHistorialView: View {
     
     var body: some View {
         ScrollView {
-            Text("Historial")
+            Text("Favoritos")
                 .font(.system(size: 28).bold())
                 .foregroundColor(Color(uiColor: .white))
                 .multilineTextAlignment(.center)
@@ -65,7 +65,7 @@ struct CardsHistorialView: View {
             if resultsMode == .grid {
                 ScrollView{
                     LazyVGrid(columns: adaptiveColumn, spacing: 20) {
-                        ForEach(cardsHistorialVM.getCardHistorial(), id: \.self) { card in
+                        ForEach(UserDefaults.standard.favCards, id: \.self) { card in
                             NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {
                                 CardGridCell(card: card)
                                     .listRowBackground(Color.clear)
@@ -81,7 +81,7 @@ struct CardsHistorialView: View {
                 }
             } else {
                 VStack {
-                    ForEach(cardsHistorialVM.getCardHistorial(), id: \.self) { card in
+                    ForEach(UserDefaults.standard.favCards, id: \.self) { card in
                         NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {
                             CardListCell(card: card)
                                 .listRowBackground(Color.clear)

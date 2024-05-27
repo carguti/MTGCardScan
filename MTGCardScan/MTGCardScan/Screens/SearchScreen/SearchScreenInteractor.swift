@@ -33,6 +33,8 @@ final class SearchScreenInteractor {
     
     // MARK: Get card by name
     func getCard(cardName: String) async throws -> [Card]? {
+        cards.removeAll()
+        
         do {
             cardsNamesResult = try await cardWebRepository.getCardsNames(partialName: cardName)
             

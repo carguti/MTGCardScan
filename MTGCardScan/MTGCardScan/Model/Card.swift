@@ -110,3 +110,8 @@ struct CardFace: Codable {
     }
 }
 
+struct CardFav: Codable {
+    let card: Card
+    let isFav: Bool
+}
+

@@ -13,6 +13,7 @@ struct MainView: View {
     
     @StateObject var searchScreenVM = SearchScreenVM(interactor: SearchScreenInteractor())
     @StateObject var searchResultVM = SearchResultVM(interactor: SearchResultInteractor())
+    @StateObject var cardsHistorialVM = CardsHistorialVM(interactor: CardsHistorialInteractor())
     
     @State var tabOptionPressed: Int = 0
     @State var destinationViewTitle: String = ""
@@ -49,11 +50,11 @@ struct MainView: View {
         case .scanView:
             ScanCardView()
         case .searchView:
-            SearchScreenView(searchScreenVM: searchScreenVM, searchResultVM: searchResultVM)
+            SearchScreenView(searchScreenVM: searchScreenVM, searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM)
         case .historialView:
-            CardsHistorialView(searchResultVM: searchResultVM)
+            CardsHistorialView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM)
         case .favouritesView:
-            EmptyView()
+            FavouritesCardsView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM)
         }
     }
 }

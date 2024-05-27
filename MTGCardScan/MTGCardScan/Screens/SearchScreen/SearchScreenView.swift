@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchScreenView: View {
     @StateObject var searchScreenVM: SearchScreenVM
     @StateObject var searchResultVM: SearchResultVM
+    @StateObject var cardsHistorialVM: CardsHistorialVM
     
     @State private var cardName = ""
     var cardNames: [String] = []
@@ -132,7 +133,7 @@ struct SearchScreenView: View {
                 ScrollView{
                     LazyVGrid(columns: adaptiveColumn, spacing: 20) {
                         ForEach(searchScreenVM.cardsByName, id: \.self) { card in
-                            NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, card: card)) {
+                            NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {
                                 CardGridCell(card: card)
                                     .listRowBackground(Color.clear)
                             }
@@ -148,7 +149,7 @@ struct SearchScreenView: View {
             } else {
                 List {
                     ForEach(searchScreenVM.cardsByName, id: \.self) { card in
-                        NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, card: card)) {
+                        NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {
                             CardListCell(card: card)
                                 .listRowBackground(Color.clear)
                         }

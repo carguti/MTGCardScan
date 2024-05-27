@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		C008FB5F2BFDC59C0042CB02 /* CardsHistorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008FB5E2BFDC59C0042CB02 /* CardsHistorialView.swift */; };
 		C03501DF2BFA3AD0000F6D2F /* LegalitiesGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03501DE2BFA3AD0000F6D2F /* LegalitiesGridCell.swift */; };
+		C03FD4992BFE3B5400BAC557 /* CardsHistorialVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4982BFE3B5300BAC557 /* CardsHistorialVM.swift */; };
+		C03FD49D2BFE3B8700BAC557 /* CardsHistorialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD49C2BFE3B8700BAC557 /* CardsHistorialInteractor.swift */; };
+		C03FD49F2BFE3DC600BAC557 /* CardsHistorialDDBBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD49E2BFE3DC600BAC557 /* CardsHistorialDDBBRepository.swift */; };
+		C03FD4A22BFE478800BAC557 /* FavouritesCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A12BFE478700BAC557 /* FavouritesCardsView.swift */; };
+		C03FD4A42BFE47B700BAC557 /* FavouritesCardsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A32BFE47B700BAC557 /* FavouritesCardsVM.swift */; };
+		C03FD4A62BFE47C800BAC557 /* FavouritesCardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A52BFE47C800BAC557 /* FavouritesCardsInteractor.swift */; };
+		C03FD4A82BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A72BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift */; };
 		C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */; };
 		C0B52AD42BBB2DDF0012A66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */; };
 		C0B52AD72BBB2DDF0012A66C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD62BBB2DDF0012A66C /* Preview Assets.xcassets */; };
@@ -82,6 +89,13 @@
 /* Begin PBXFileReference section */
 		C008FB5E2BFDC59C0042CB02 /* CardsHistorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsHistorialView.swift; sourceTree = "<group>"; };
 		C03501DE2BFA3AD0000F6D2F /* LegalitiesGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalitiesGridCell.swift; sourceTree = "<group>"; };
+		C03FD4982BFE3B5300BAC557 /* CardsHistorialVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsHistorialVM.swift; sourceTree = "<group>"; };
+		C03FD49C2BFE3B8700BAC557 /* CardsHistorialInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsHistorialInteractor.swift; sourceTree = "<group>"; };
+		C03FD49E2BFE3DC600BAC557 /* CardsHistorialDDBBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsHistorialDDBBRepository.swift; sourceTree = "<group>"; };
+		C03FD4A12BFE478700BAC557 /* FavouritesCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsView.swift; sourceTree = "<group>"; };
+		C03FD4A32BFE47B700BAC557 /* FavouritesCardsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsVM.swift; sourceTree = "<group>"; };
+		C03FD4A52BFE47C800BAC557 /* FavouritesCardsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsInteractor.swift; sourceTree = "<group>"; };
+		C03FD4A72BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsDDBBRepository.swift; sourceTree = "<group>"; };
 		C0B52ACC2BBB2DDD0012A66C /* MTGCardScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGCardScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardScanApp.swift; sourceTree = "<group>"; };
 		C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				C008FB5E2BFDC59C0042CB02 /* CardsHistorialView.swift */,
+				C03FD4982BFE3B5300BAC557 /* CardsHistorialVM.swift */,
+				C03FD49C2BFE3B8700BAC557 /* CardsHistorialInteractor.swift */,
 			);
 			path = CardsHistorial;
 			sourceTree = "<group>";
@@ -169,6 +185,16 @@
 				C03501DE2BFA3AD0000F6D2F /* LegalitiesGridCell.swift */,
 			);
 			path = LegalitiesGridCell;
+			sourceTree = "<group>";
+		};
+		C03FD4A02BFE476000BAC557 /* FavouritesCards */ = {
+			isa = PBXGroup;
+			children = (
+				C03FD4A12BFE478700BAC557 /* FavouritesCardsView.swift */,
+				C03FD4A32BFE47B700BAC557 /* FavouritesCardsVM.swift */,
+				C03FD4A52BFE47C800BAC557 /* FavouritesCardsInteractor.swift */,
+			);
+			path = FavouritesCards;
 			sourceTree = "<group>";
 		};
 		C0B52AC32BBB2DDD0012A66C = {
@@ -242,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				C0C3E0102BCD6D5700BF1993 /* CardDDBBRepository.swift */,
+				C03FD49E2BFE3DC600BAC557 /* CardsHistorialDDBBRepository.swift */,
+				C03FD4A72BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift */,
 			);
 			path = DDBBRepositories;
 			sourceTree = "<group>";
@@ -322,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				C008FB5D2BFDC4600042CB02 /* CardsHistorial */,
+				C03FD4A02BFE476000BAC557 /* FavouritesCards */,
 				C0C3E0292BD8144700BF1993 /* MainView */,
 				C0C3E0202BCD7D7100BF1993 /* ScanCard */,
 				C0C3E0432BDD602A00BF1993 /* SearchScreen */,
@@ -561,6 +590,7 @@
 				C0C3E04D2BDD85E700BF1993 /* AppDelegate.swift in Sources */,
 				C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */,
 				C0DE93672BF5331C0032A3E7 /* SearchResultVM.swift in Sources */,
+				C03FD4A22BFE478800BAC557 /* FavouritesCardsView.swift in Sources */,
 				C0B52AFF2BBB36040012A66C /* Dependencies.swift in Sources */,
 				C0DE93612BF51C650032A3E7 /* CardPrints.swift in Sources */,
 				C0C3E02B2BD814A100BF1993 /* MainTab.swift in Sources */,
@@ -569,20 +599,26 @@
 				C0C3E0112BCD6D5700BF1993 /* CardDDBBRepository.swift in Sources */,
 				C0DE93652BF520570032A3E7 /* CardPrintsWebRepository.swift in Sources */,
 				C0C3E0222BCD7F8E00BF1993 /* ScanCardView.swift in Sources */,
+				C03FD4A42BFE47B700BAC557 /* FavouritesCardsVM.swift in Sources */,
+				C03FD4A82BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift in Sources */,
 				C0C3E0192BCD742F00BF1993 /* SplashScreenVM.swift in Sources */,
 				C0C3E0172BCD740100BF1993 /* SplashScreenView.swift in Sources */,
 				C0C3E0452BDD604500BF1993 /* SearchScreenView.swift in Sources */,
+				C03FD4A62BFE47C800BAC557 /* FavouritesCardsInteractor.swift in Sources */,
 				C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */,
 				C0B52B082BBB365A0012A66C /* APICall.swift in Sources */,
 				C0C3E0362BD8219D00BF1993 /* TabBarView.swift in Sources */,
 				C0C3E00F2BCC3C7000BF1993 /* CardInteractor.swift in Sources */,
+				C03FD4992BFE3B5400BAC557 /* CardsHistorialVM.swift in Sources */,
 				C0C327682BEC9F7D005D5688 /* CardGridCell.swift in Sources */,
 				C0C3E02E2BD8195200BF1993 /* Localizable.swift in Sources */,
 				C0C3E0472BDD608F00BF1993 /* SearchScreenVM.swift in Sources */,
 				C03501DF2BFA3AD0000F6D2F /* LegalitiesGridCell.swift in Sources */,
 				C0C3E0512BDEB3FA00BF1993 /* CardListCell.swift in Sources */,
+				C03FD49D2BFE3B8700BAC557 /* CardsHistorialInteractor.swift in Sources */,
 				C0C3E01B2BCD76E600BF1993 /* ApplicationSwitcher.swift in Sources */,
 				C0C3E0322BD81A8800BF1993 /* TabBarIconView.swift in Sources */,
+				C03FD49F2BFE3DC600BAC557 /* CardsHistorialDDBBRepository.swift in Sources */,
 				C0C3E01D2BCD772900BF1993 /* UserDefaults+Utils.swift in Sources */,
 				C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */,
 				C0C3E0342BD81BFF00BF1993 /* TabBarManager.swift in Sources */,

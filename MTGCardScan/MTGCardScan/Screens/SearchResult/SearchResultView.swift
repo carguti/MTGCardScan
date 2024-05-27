@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchResultView: View {
     @StateObject var searchResultVM: SearchResultVM
+    @StateObject var cardsHistorialVM: CardsHistorialVM
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -66,9 +67,7 @@ struct SearchResultView: View {
             
         })
         .onAppear {
-            if !UserDefaults.standard.cardsHistorial.contains(card) {
-                UserDefaults.standard.cardsHistorial.append(card)
-            }
+            cardsHistorialVM.storeCardHistorial(card: card)
         }
         
     }
@@ -98,8 +97,15 @@ struct SearchResultView: View {
             
             Button(action: {
                 isFav = !isFav
+                if isFav && !UserDefaults.standard.favCards.contains(card) {
+                    UserDefaults.standard.favCards.append(card)
+                } else if !isFav && UserDefaults.standard.favCards.contains(card) {
+                    if let idx = UserDefaults.standard.favCards.firstIndex(where: { $0 == card }) {
+                        UserDefaults.standard.favCards.remove(at: idx)
+                    }
+                }
             }, label: {
-                Image(systemName: isFav ? "star.fill" : "star")
+                Image(systemName: isFav || UserDefaults.standard.favCards.contains(card) ? "star.fill" : "star")
                     .resizable()
                     .foregroundColor(Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1)))
                     .frame(width: 36, height: 36)

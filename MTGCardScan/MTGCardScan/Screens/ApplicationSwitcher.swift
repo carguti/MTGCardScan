@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ApplicationSwitcher: View {
+    
     var body: some View {
         if !UserDefaults.standard.onBoardingShown {
             //OnboardingView()

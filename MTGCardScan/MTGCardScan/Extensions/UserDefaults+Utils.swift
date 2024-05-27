@@ -121,27 +121,6 @@ extension UserDefaults {
     }
 }
 
-// MARK: - Fav cards
-extension UserDefaults {
-    struct UserDefaultsFavCardsKeys {
-        static let kFavCards = "FavCards"
-    }
-    
-    // MARK: - Get fav cards
-    var favCards: [Card] {
-        get {
-            guard let favCards = get(objectType: [Card].self, forKey: UserDefaultsFavCardsKeys.kFavCards) else { return [] }
-            return favCards
-        }
-        
-        set {
-            set(object: newValue, forKey: UserDefaultsFavCardsKeys.kFavCards)
-            
-            synchronize()
-        }
-    }
-}
-
 // MARK: - Historial cards
 extension UserDefaults {
     struct UserDefaultsCardsHistorialKeys {
@@ -157,6 +136,27 @@ extension UserDefaults {
         
         set {
             set(object: newValue, forKey: UserDefaultsCardsHistorialKeys.kCardsHistorial)
+            
+            synchronize()
+        }
+    }
+}
+
+// MARK: - Fav cards
+extension UserDefaults {
+    struct UserDefaultsFavCardsKeys {
+        static let kFavCards = "FavCards"
+    }
+    
+    // MARK: - Get fav cards
+    var favCards: [Card] {
+        get {
+            guard let favCards = get(objectType: [Card].self, forKey: UserDefaultsFavCardsKeys.kFavCards) else { return [] }
+            return favCards
+        }
+        
+        set {
+            set(object: newValue, forKey: UserDefaultsFavCardsKeys.kFavCards)
             
             synchronize()
         }
