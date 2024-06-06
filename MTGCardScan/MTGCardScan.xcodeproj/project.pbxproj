@@ -16,6 +16,7 @@
 		C03FD4A42BFE47B700BAC557 /* FavouritesCardsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A32BFE47B700BAC557 /* FavouritesCardsVM.swift */; };
 		C03FD4A62BFE47C800BAC557 /* FavouritesCardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A52BFE47C800BAC557 /* FavouritesCardsInteractor.swift */; };
 		C03FD4A82BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A72BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift */; };
+		C03FD4AA2C0E0EB900BAC557 /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A92C0E0EB900BAC557 /* View+Utils.swift */; };
 		C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */; };
 		C0B52AD42BBB2DDF0012A66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */; };
 		C0B52AD72BBB2DDF0012A66C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD62BBB2DDF0012A66C /* Preview Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		C03FD4A32BFE47B700BAC557 /* FavouritesCardsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsVM.swift; sourceTree = "<group>"; };
 		C03FD4A52BFE47C800BAC557 /* FavouritesCardsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsInteractor.swift; sourceTree = "<group>"; };
 		C03FD4A72BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsDDBBRepository.swift; sourceTree = "<group>"; };
+		C03FD4A92C0E0EB900BAC557 /* View+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
 		C0B52ACC2BBB2DDD0012A66C /* MTGCardScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGCardScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardScanApp.swift; sourceTree = "<group>"; };
 		C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				C0C3E0272BD812D600BF1993 /* NavBar+Utils.swift */,
 				C0C3E01C2BCD772900BF1993 /* UserDefaults+Utils.swift */,
+				C03FD4A92C0E0EB900BAC557 /* View+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				C03FD4A62BFE47C800BAC557 /* FavouritesCardsInteractor.swift in Sources */,
 				C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */,
 				C0B52B082BBB365A0012A66C /* APICall.swift in Sources */,
+				C03FD4AA2C0E0EB900BAC557 /* View+Utils.swift in Sources */,
 				C0C3E0362BD8219D00BF1993 /* TabBarView.swift in Sources */,
 				C0C3E00F2BCC3C7000BF1993 /* CardInteractor.swift in Sources */,
 				C03FD4992BFE3B5400BAC557 /* CardsHistorialVM.swift in Sources */,

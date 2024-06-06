@@ -79,6 +79,27 @@ extension UserDefaults {
     }
 }
 
+// MARK: - Selected card
+extension UserDefaults {
+    struct UserDefaultsSelectedCardKeys {
+        static let kSelectedCard = "SelectedCard"
+    }
+    
+    // MARK: - Get fav cards
+    var selectedCard: Card? {
+        get {
+            guard let selectedCard = get(objectType: Card.self, forKey: UserDefaultsSelectedCardKeys.kSelectedCard) else { return nil }
+            return selectedCard
+        }
+        
+        set {
+            set(object: newValue, forKey: UserDefaultsSelectedCardKeys.kSelectedCard)
+            
+            synchronize()
+        }
+    }
+}
+
 // MARK: - Selected card image
 extension UserDefaults {
     struct UserDefaultsSelectedCardImageKeys {

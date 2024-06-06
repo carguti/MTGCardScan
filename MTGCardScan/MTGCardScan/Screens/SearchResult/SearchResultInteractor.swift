@@ -12,6 +12,31 @@ final class SearchResultInteractor {
     @Inject var cardPrintsWebRepository: CardPrintsWebRepository
     
     private var cardPrints: [CardPrintsInfo] = []
+    private var selectedCard: Card?
+    
+    // MARK: Store selected card
+    func storeSelectedCard(card: Card) async throws -> Card? {
+        do {
+            UserDefaults.standard.selectedCard = card
+            
+            selectedCard = card
+            
+            return selectedCard
+        } catch {
+            print("Error setting selected card: \(error)")
+            throw error
+        }
+    }
+    
+    // MARK: Get selected card
+    func getSelectedCard() async throws -> Card? {
+        do {
+            return UserDefaults.standard.selectedCard
+        } catch {
+            print("Error setting selected card: \(error)")
+            throw error
+        }
+    }
     
     // MARK: Get cardPrints
     func getCardPrints(printsUri: String) async throws -> [CardPrintsInfo]? {

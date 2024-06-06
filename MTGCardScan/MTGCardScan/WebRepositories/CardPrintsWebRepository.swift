@@ -47,7 +47,9 @@ struct MockCardPrintsWebRepository: CardPrintsWebRepository {
                                 borderCrop: "https://cards.scryfall.io/border_crop/front/8/c/8c936967-b8eb-4d32-a6cc-c6bb006023d3.jpg?1641097591")
         let purchaseUris = PurchaseUris(cardmarket: "https://www.cardmarket.com/en/Magic/Products/Singles/Judge-Rewards-Promos/Edgar-Markov?referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall")
         
-        let cardPintsInfo = [CardPrintsInfo(id: id, name: name, setName: "Judge Gift Cards 2021", prices: prices, imageUris: imagesUris, purchaseUris: purchaseUris)]
+        let cardFaces = [CardFace(name: "Brutal Cathar", imagesUris: Images(small: "https://cards.scryfall.io/small/front/7/2/72df9225-eb06-4f3a-94a5-844c9f6869c7.jpg?1673158557", normal: "https://cards.scryfall.io/small/front/7/2/72df9225-eb06-4f3a-94a5-844c9f6869c7.jpg?1673158557", large: "https://cards.scryfall.io/small/front/7/2/72df9225-eb06-4f3a-94a5-844c9f6869c7.jpg?1673158557", png: "https://cards.scryfall.io/small/front/7/2/72df9225-eb06-4f3a-94a5-844c9f6869c7.jpg?1673158557", artCrop: "https://cards.scryfall.io/small/front/7/2/72df9225-eb06-4f3a-94a5-844c9f6869c7.jpg?1673158557", borderCrop: "https://cards.scryfall.io/small/front/7/2/72df9225-eb06-4f3a-94a5-844c9f6869c7.jpg?1673158557"))]
+        
+        let cardPintsInfo = [CardPrintsInfo(id: id, name: name, setName: "Judge Gift Cards 2021", prices: prices, imageUris: imagesUris, purchaseUris: purchaseUris, cardFaces: cardFaces)]
         
         return CardPrints(object: object, totalCards: totalCards, hasMore: hasMore, cardPrints: cardPintsInfo)
     }

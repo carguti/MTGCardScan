@@ -35,8 +35,9 @@ struct CardPrintsInfo: Codable, Identifiable, Hashable {
     let name: String
     let setName: String
     let prices: Prices
-    let imageUris: Images
+    let imageUris: Images?
     let purchaseUris: PurchaseUris
+    let cardFaces: [CardFace]?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -45,5 +46,6 @@ struct CardPrintsInfo: Codable, Identifiable, Hashable {
         case prices = "prices"
         case imageUris = "image_uris"
         case purchaseUris = "purchase_uris"
+        case cardFaces = "card_faces"
     }
 }
