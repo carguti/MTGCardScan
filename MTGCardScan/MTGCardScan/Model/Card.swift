@@ -28,7 +28,7 @@ struct Card: Codable, Identifiable, Hashable {
     let relatedUris: RelatedUris
     let cardFaces: [CardFace]?
     let printsSearchUri: String
-    let purchaseUris: PurchaseUris
+    let purchaseUris: PurchaseUris?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"

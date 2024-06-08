@@ -36,7 +36,7 @@ struct CardPrintsInfo: Codable, Identifiable, Hashable {
     let setName: String
     let prices: Prices
     let imageUris: Images?
-    let purchaseUris: PurchaseUris
+    let purchaseUris: PurchaseUris?
     let cardFaces: [CardFace]?
     
     enum CodingKeys: String, CodingKey {

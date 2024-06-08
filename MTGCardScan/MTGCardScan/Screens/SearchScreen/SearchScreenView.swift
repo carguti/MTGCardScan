@@ -11,6 +11,7 @@ struct SearchScreenView: View {
     @StateObject var searchScreenVM: SearchScreenVM
     @StateObject var searchResultVM: SearchResultVM
     @StateObject var cardsHistorialVM: CardsHistorialVM
+    @State private var showScannerView = false
     
     @State private var cardName = ""
     var cardNames: [String] = []
@@ -57,6 +58,13 @@ struct SearchScreenView: View {
         .ignoresSafeArea()
         .hiddenNavigationBarStyle()
         .navigationBarBackButtonHidden(true)
+        .sheet(isPresented: $showScannerView, onDismiss: {
+            Task {
+                await searchScreenVM.getCard(cardName: UserDefaults.standard.scannedCardName)
+            }
+        }, content: {
+            ScanCardView()
+        })
     }
     
     // MARK: searchFields view
@@ -67,48 +75,57 @@ struct SearchScreenView: View {
                     .font(.system(size: 28).bold())
                     .foregroundColor(Color(uiColor: .white))
                 
-                HStack(spacing: 8) {
-                    TextField("SEARCH_VIEW_PLACEHOLDER".localized, text: $cardName)
-                        .foregroundColor(Color(uiColor: .white))
-                    
-                    Button {
-                        cardName = ""
-                    } label: {
-                        Image(systemName: "multiply.circle.fill")
-                    }
-                    .opacity(cardName.count >= 3 ? 1 : 0)
-                    .foregroundColor(.white)
-                    .padding(.trailing, 4)
-                }
-                .frame(height: 32)
-                .padding(.horizontal, 12)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.gray)
-                )
-                
-                Button(action: {
-                    Task {
-                        await searchScreenVM.getCard(cardName: cardName)
-                    }
-                }, label: {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
+                HStack {
+                    HStack(spacing: 8) {
+                        TextField("SEARCH_VIEW_PLACEHOLDER".localized, text: $cardName)
                             .foregroundColor(Color(uiColor: .white))
                         
-                        Text("SEARCH".localized)
-                            .font(.system(size: 16).bold())
-                            .foregroundColor(Color(uiColor: .white))
+                        Button {
+                            cardName = ""
+                        } label: {
+                            Image(systemName: "multiply.circle.fill")
+                        }
+                        .opacity(cardName.count >= 3 ? 1 : 0)
+                        .foregroundColor(.white)
+                        .padding(.trailing, 4)
                     }
-                    .frame(height: 46)
+                    .frame(height: 32)
                     .padding(.horizontal, 12)
                     .background(
                         RoundedRectangle(cornerRadius: 10)
                             .fill(.gray)
                     )
                     
-                })
-                .opacity(cardName.count >= 3 ? 1 : 0)
+                    Button(action: {
+                        Task {
+                            await searchScreenVM.getCard(cardName: cardName)
+                        }
+                    }, label: {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(Color(uiColor: .white))
+                            
+                            Text("SEARCH".localized)
+                                .font(.system(size: 16).bold())
+                                .foregroundColor(Color(uiColor: .white))
+                        }
+                        .frame(height: 46)
+                        .padding(.horizontal, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(.gray)
+                        )
+                        
+                    })
+                    .opacity(cardName.count >= 3 ? 1 : 0)
+                    
+                    Button(action: {
+                        showScannerView = true
+                    }, label: {
+                        Image(systemName: "doc.viewfinder.fill")
+                            .foregroundColor(Color(uiColor: .white))
+                    })
+                }
             }
             
         }
@@ -136,6 +153,9 @@ struct SearchScreenView: View {
                             NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {
                                 CardGridCell(card: card)
                                     .listRowBackground(Color.clear)
+                                    .onAppear {
+                                        UserDefaults.standard.selectedCard = card
+                                    }
                             }
                             .listRowBackground(Color.clear)
                             .foregroundColor(.clear)
@@ -152,6 +172,9 @@ struct SearchScreenView: View {
                         NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {
                             CardListCell(card: card)
                                 .listRowBackground(Color.clear)
+                                .onAppear {
+                                    UserDefaults.standard.selectedCard = card
+                                }
                         }
                         .listRowBackground(Color.clear)
                         .foregroundColor(.clear)

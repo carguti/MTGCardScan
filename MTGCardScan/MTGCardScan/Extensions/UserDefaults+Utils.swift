@@ -85,15 +85,35 @@ extension UserDefaults {
         static let kSelectedCard = "SelectedCard"
     }
     
-    // MARK: - Get fav cards
+    // MARK: - Get selected card
     var selectedCard: Card? {
         get {
             guard let selectedCard = get(objectType: Card.self, forKey: UserDefaultsSelectedCardKeys.kSelectedCard) else { return nil }
+            
             return selectedCard
         }
         
         set {
             set(object: newValue, forKey: UserDefaultsSelectedCardKeys.kSelectedCard)
+            
+            synchronize()
+        }
+    }
+    
+    // MARK: - Get scanned card
+    struct UserDefaultsScannedCardKeys {
+        static let kScannedCardName = "ScannedCardName"
+    }
+    
+    var scannedCardName: String {
+        get {
+            guard let scannedCardName = get(objectType: String.self, forKey: UserDefaultsScannedCardKeys.kScannedCardName) else { return "" }
+            
+            return scannedCardName
+        }
+        
+        set {
+            set(object: newValue, forKey: UserDefaultsScannedCardKeys.kScannedCardName)
             
             synchronize()
         }

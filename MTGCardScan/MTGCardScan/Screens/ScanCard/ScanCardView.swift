@@ -11,6 +11,8 @@ import VisionKit
 
 @MainActor
 struct ScanCardView: UIViewControllerRepresentable, View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     static let startScanLabel = "Start Scan"
     static let stopScanLabel = "Stop Scan"
     
@@ -25,7 +27,7 @@ struct ScanCardView: UIViewControllerRepresentable, View {
     )
     
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
-        
+        var i = 0
     }
     
     var scannerViewController: DataScannerViewController = DataScannerViewController(
@@ -112,11 +114,14 @@ struct ScanCardView: UIViewControllerRepresentable, View {
             case .text(let text):
                 let cardName = String(text.transcript.components(separatedBy: "\n")[0])
                 print("Card Name -> \(cardName)")
+                
                 Task {
                     do {
-                        let card = try await cardInteractor.getCard(name: cardName)
+                        //let card = try await cardInteractor.getCard(name: cardName)
                         
-                        print("------------------ CARD -----------------\n\(card)\n------------------------------------------")
+                        UserDefaults.standard.scannedCardName = cardName
+                        
+                        parent.presentationMode.wrappedValue.dismiss()
                     } catch {
                         print("Error getting card: \(error)")
                     }
