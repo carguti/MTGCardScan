@@ -93,6 +93,10 @@ struct SearchResultView: View {
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(uiColor: .darkGray))
+        .overlay {
+            LoadingView()
+                .opacity(searchResultVM.loading ? 1.0 : 0.0)
+        }
         .sheet(isPresented: $showCardImagePopUp, content: {
             VStack {
                 Text(UserDefaults.standard.selectedCardEdition)

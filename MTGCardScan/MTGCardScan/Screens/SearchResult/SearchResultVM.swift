@@ -12,6 +12,7 @@ class SearchResultVM: ObservableObject {
     
     @Published var cardPrints: [CardPrintsInfo] = []
     @Published var selectedCard: Card?
+    @Published var loading: Bool = false
     
     // MARK: Init
     init(interactor: SearchResultInteractor) {
@@ -20,10 +21,16 @@ class SearchResultVM: ObservableObject {
     
     // MARK: - Store selected card
     @MainActor func storeSelectedCard(card: Card) async {
+        loading = true
+        
         Task {
             do {
                 try await interactor.storeSelectedCard(card: card)
+                
+                loading = false
             } catch {
+                loading = false
+                
                 print("Error setting selected card")
             }
         }
@@ -31,10 +38,16 @@ class SearchResultVM: ObservableObject {
     
     // MARK: - Get selected card
     @MainActor func getSelectedCard() async {
+        loading = true
+        
         Task {
             do {
                 selectedCard = try await interactor.getSelectedCard()
+                
+                loading = false
             } catch {
+                loading = false
+                
                 print("Error getting selected card")
             }
         }
@@ -42,14 +55,18 @@ class SearchResultVM: ObservableObject {
     
     // MARK: Get card prints
     @MainActor func getCardPrints(printsUri: String) async {
+        loading = true
+        
         cardPrints.removeAll()
         
         Task {
             do {
                 cardPrints = try await interactor.getCardPrints(printsUri: printsUri) ?? []
                 
-                var i = 0
+                loading = false
             } catch {
+                loading = false
+                
                 print("Error getting card prints")
             }
         }

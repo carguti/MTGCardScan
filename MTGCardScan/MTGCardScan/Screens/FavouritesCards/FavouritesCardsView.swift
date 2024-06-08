@@ -47,6 +47,10 @@ struct FavouritesCardsView: View {
         .background(Color(uiColor: .darkGray))
         .padding(.horizontal, 0)
         .padding(.top, 60)
+        .overlay {
+            LoadingView()
+                .opacity(searchResultVM.loading ? 1.0 : 0.0)
+        }
     }
     
     // MARK: searchFields view

@@ -12,6 +12,8 @@ class FavouritesCardsVM: ObservableObject {
     
     @Published var favCards: [Card] = []
     
+    @Published var loading = false
+    
     // MARK: Init
     init(interactor: FavouritesCardsInteractor) {
         self.interactor = interactor
@@ -19,9 +21,15 @@ class FavouritesCardsVM: ObservableObject {
     
     //MARK: Get cards historial
     @MainActor func getCardHistorial() async {
+        loading = true
+        
         do {
             favCards = try await interactor.getFavCards()
+            
+            loading = false
         } catch {
+            loading = false
+            
             print("Error getting cards historial")
         }
         

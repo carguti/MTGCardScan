@@ -25,6 +25,10 @@ struct SplashScreenView: View {
                 await splasScreenVM.initialSynch()
             }
         }
+        .overlay {
+            LoadingView()
+                .opacity(splasScreenVM.loading ? 1.0 : 0.0)
+        }
     }
 }
 

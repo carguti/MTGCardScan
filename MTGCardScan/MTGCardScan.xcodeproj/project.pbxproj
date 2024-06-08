@@ -17,6 +17,7 @@
 		C03FD4A62BFE47C800BAC557 /* FavouritesCardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A52BFE47C800BAC557 /* FavouritesCardsInteractor.swift */; };
 		C03FD4A82BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A72BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift */; };
 		C03FD4AA2C0E0EB900BAC557 /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03FD4A92C0E0EB900BAC557 /* View+Utils.swift */; };
+		C07D4E0B2C14735100CE140B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D4E0A2C14735100CE140B /* LoadingView.swift */; };
 		C0B52AD02BBB2DDD0012A66C /* MTGCardScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */; };
 		C0B52AD42BBB2DDF0012A66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */; };
 		C0B52AD72BBB2DDF0012A66C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B52AD62BBB2DDF0012A66C /* Preview Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		C03FD4A52BFE47C800BAC557 /* FavouritesCardsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsInteractor.swift; sourceTree = "<group>"; };
 		C03FD4A72BFE481D00BAC557 /* FavouritesCardsDDBBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCardsDDBBRepository.swift; sourceTree = "<group>"; };
 		C03FD4A92C0E0EB900BAC557 /* View+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
+		C07D4E0A2C14735100CE140B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C0B52ACC2BBB2DDD0012A66C /* MTGCardScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGCardScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B52ACF2BBB2DDD0012A66C /* MTGCardScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardScanApp.swift; sourceTree = "<group>"; };
 		C0B52AD32BBB2DDF0012A66C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				C0DE93682BF5349E0032A3E7 /* CardPrintsCell */,
 				C03501DD2BFA3AB8000F6D2F /* LegalitiesGridCell */,
 				C0C3E0302BD81A3E00BF1993 /* TaBar */,
+				C07D4E0A2C14735100CE140B /* LoadingView.swift */,
 				C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */,
 			);
 			path = CommonViews;
@@ -461,6 +464,7 @@
 				C0C3E04B2BDD64B500BF1993 /* CardNamesResult.swift in Sources */,
 				C008FB5F2BFDC59C0042CB02 /* CardsHistorialView.swift in Sources */,
 				C0C3E03A2BD827D700BF1993 /* MainView.swift in Sources */,
+				C07D4E0B2C14735100CE140B /* LoadingView.swift in Sources */,
 				C0B52B012BBB362F0012A66C /* DependencyInjector.swift in Sources */,
 				C0C3E04D2BDD85E700BF1993 /* AppDelegate.swift in Sources */,
 				C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */,

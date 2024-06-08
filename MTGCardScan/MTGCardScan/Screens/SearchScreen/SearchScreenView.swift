@@ -58,6 +58,10 @@ struct SearchScreenView: View {
         .ignoresSafeArea()
         .hiddenNavigationBarStyle()
         .navigationBarBackButtonHidden(true)
+        .overlay {
+            LoadingView()
+                .opacity(searchScreenVM.loading ? 1.0 : 0.0)
+        }
         .sheet(isPresented: $showScannerView, onDismiss: {
             Task {
                 await searchScreenVM.getCard(cardName: UserDefaults.standard.scannedCardName)
