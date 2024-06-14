@@ -32,6 +32,26 @@ final class SearchScreenInteractor {
     }
     
     // MARK: Get card by name
+    func getScannedCard(cardName: String) async throws -> Card? {
+        cards.removeAll()
+        
+        do {
+            card = try await cardWebRepository.getCard(name: cardName)
+            
+            guard let card = card else {
+                return nil
+            }
+            
+            cards.append(card)
+            
+            return card
+        } catch {
+            print("Error getting card: \(error)")
+            throw error
+        }
+    }
+    
+    // MARK: Get card by name
     func getCard(cardName: String) async throws -> [Card]? {
         cards.removeAll()
         

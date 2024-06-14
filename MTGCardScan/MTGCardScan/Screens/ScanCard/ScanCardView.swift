@@ -27,7 +27,7 @@ struct ScanCardView: UIViewControllerRepresentable, View {
     )
     
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
-        var i = 0
+        context.coordinator.startScanning()
     }
     
     var scannerViewController: DataScannerViewController = DataScannerViewController(
@@ -42,19 +42,18 @@ struct ScanCardView: UIViewControllerRepresentable, View {
         scannerViewController.delegate = context.coordinator
         
         // Add a button to start scanning
-        let scanButton = UIButton(type: .system)
-        scanButton.backgroundColor = UIColor.systemBlue
-        scanButton.setTitle("Start Scan", for: .normal)
-        scanButton.setTitleColor(UIColor.white, for: .normal)
-        scanButton.addTarget(context.coordinator, action: #selector(Coordinator.startScanning(_:)), for: .touchUpInside)
-        scannerViewController.view.addSubview(scanButton)
+        //let scanButton = UIButton(type: .system)
+        //scanButton.backgroundColor = UIColor.systemBlue
+        //scanButton.setTitle("Start Scan", for: .normal)
+        //scanButton.setTitleColor(UIColor.white, for: .normal)
+        //scannerViewController.view.addSubview(scanButton)
         
         // Set up button constraints
-        scanButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            scanButton.centerXAnchor.constraint(equalTo: scannerViewController.view.centerXAnchor),
-            scanButton.bottomAnchor.constraint(equalTo: scannerViewController.view.safeAreaLayoutGuide.bottomAnchor, constant: -Measures.kTabBarHeight)
-        ])
+        //scanButton.translatesAutoresizingMaskIntoConstraints = false
+        //NSLayoutConstraint.activate([
+            //scanButton.centerXAnchor.constraint(equalTo: scannerViewController.view.centerXAnchor),
+          //  scanButton.bottomAnchor.constraint(equalTo: scannerViewController.view.safeAreaLayoutGuide.bottomAnchor, constant: -Measures.kTabBarHeight)
+        //])
         
         return scannerViewController
     }
@@ -134,14 +133,8 @@ struct ScanCardView: UIViewControllerRepresentable, View {
         }
         
         //Add this method to start scanning
-        @objc func startScanning(_ sender: UIButton) {
-            if sender.title(for: .normal) == startScanLabel {
-                try? parent.scannerViewController.startScanning()
-                sender.setTitle(stopScanLabel, for: .normal)
-            } else {
-                parent.scannerViewController.stopScanning()
-                sender.setTitle(startScanLabel, for: .normal)
-            }
+        func startScanning() {
+            try? parent.scannerViewController.startScanning()
         }
     }
 }

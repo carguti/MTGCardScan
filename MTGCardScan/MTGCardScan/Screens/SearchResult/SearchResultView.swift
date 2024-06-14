@@ -16,6 +16,8 @@ struct SearchResultView: View {
     var card: Card
     let foregroundSelectedColor = Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1))
     
+    let secondaryColor = Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1))
+    
     @State var flipped = false
     
     @State private var isFav = false
@@ -28,44 +30,52 @@ struct SearchResultView: View {
             nameAndFavView
             
             if let cardFace = UserDefaults.standard.selectedCard?.cardFaces {
-                ZStack {
-                    AsyncImage(url: URL(string: cardFace.first?.imagesUris.normal ?? "")) { image in
+                if cardFace.first?.imagesUris != nil {
+                    ZStack {
+                        AsyncImage(url: URL(string: cardFace.first?.imagesUris != nil ? cardFace.first?.imagesUris?.normal ?? "" : card.imageUris?.normal ?? "")) { image in
+                            image.resizable()
+                        } placeholder: {
+                            Color.black
+                        }
+                        .frame(width: 312, height: 432)
+                        .clipShape(.rect(cornerRadius: 12))
+                        .opacity(flipped ? 0.0 : 1.0)
+                        
+                        AsyncImage(url: URL(string: cardFace.last?.imagesUris?.normal ?? "")) { image in
+                            image.resizable()
+                        } placeholder: {
+                            Color.black
+                        }
+                        .scaleEffect(x: -1, y: 1)
+                        .frame(width: 312, height: 432)
+                        .clipShape(.rect(cornerRadius: 12))
+                        .opacity(flipped ? 1.0 : 0.0)
+                    }
+                    .overlay(alignment: .bottom) {
+                        Button(action: {
+                            self.flipped.toggle()
+                        }, label: {
+                            Image(systemName: "arrow.left.arrow.right")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .foregroundColor(secondaryColor)
+                                .cornerRadius(4.0)
+                        })
+                        .frame(width: 32, height: 32)
+                        .buttonStyle(.bordered)
+                        .background(Color(uiColor: .lightGray).opacity(0.5))
+                    }
+                    .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
+                    .animation(.default, value: flipped)
+                } else {
+                    AsyncImage(url: URL(string: card.imageUris?.normal ?? "")) { image in
                         image.resizable()
                     } placeholder: {
                         Color.black
                     }
                     .frame(width: 312, height: 432)
-                    .clipShape(.rect(cornerRadius: 16))
-                    .presentationDetents([.large])
-                    .presentationBackground(.ultraThinMaterial)
-                    .opacity(flipped ? 0.0 : 1.0)
-                    
-                    AsyncImage(url: URL(string: cardFace.last?.imagesUris.normal ?? "")) { image in
-                        image.resizable()
-                    } placeholder: {
-                        Color.black
-                    }
-                    .scaleEffect(x: -1, y: 1)
-                    .frame(width: 312, height: 432)
-                    .clipShape(.rect(cornerRadius: 16))
-                    .presentationDetents([.large])
-                    .presentationBackground(.ultraThinMaterial)
-                    .opacity(flipped ? 1.0 : 0.0)
+                    .clipShape(.rect(cornerRadius: 12))
                 }
-                .overlay(alignment: .bottom) {
-                    Button(action: {
-                        self.flipped.toggle()
-                    }, label: {
-                        Image(systemName: "arrow.left.arrow.right")
-                            .tint(Color(uiColor: .darkGray))
-                            .cornerRadius(4.0)
-                    })
-                    .frame(width: 40, height: 40)
-                    .buttonStyle(.bordered)
-                    .background(Color(uiColor: .lightGray).opacity(0.5))
-                }
-                .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
-                .animation(.default, value: flipped)
             } else {
                 AsyncImage(url: URL(string: UserDefaults.standard.selectedCard?.imageUris?.normal ?? "")) { image in
                     image.resizable()
@@ -105,51 +115,59 @@ struct SearchResultView: View {
                     .multilineTextAlignment(.center)
                 
                 if let cardFace = UserDefaults.standard.selectedCard?.cardFaces {
-                    ZStack {
-                        AsyncImage(url: URL(string: cardFace.first?.imagesUris.normal ?? "")) { image in
+                    if cardFace.first?.imagesUris != nil {
+                        ZStack {
+                            AsyncImage(url: URL(string: cardFace.first?.imagesUris != nil ? cardFace.first?.imagesUris?.normal ?? "" : card.imageUris?.normal ?? "")) { image in
+                                image.resizable()
+                            } placeholder: {
+                                Color.black
+                            }
+                            .frame(width: 312, height: 432)
+                            .clipShape(.rect(cornerRadius: 12))
+                            .opacity(flipped ? 0.0 : 1.0)
+                            
+                            AsyncImage(url: URL(string: cardFace.last?.imagesUris?.normal ?? "")) { image in
+                                image.resizable()
+                            } placeholder: {
+                                Color.black
+                            }
+                            .scaleEffect(x: -1, y: 1)
+                            .frame(width: 312, height: 432)
+                            .clipShape(.rect(cornerRadius: 12))
+                            .opacity(flipped ? 1.0 : 0.0)
+                        }
+                        .overlay(alignment: .bottom) {
+                            Button(action: {
+                                self.flipped.toggle()
+                            }, label: {
+                                Image(systemName: "arrow.left.arrow.right")
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                                    .foregroundColor(secondaryColor)
+                                    .cornerRadius(4.0)
+                            })
+                            .frame(width: 32, height: 32)
+                            .buttonStyle(.bordered)
+                            .background(Color(uiColor: .lightGray).opacity(0.5))
+                        }
+                        .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
+                        .animation(.default, value: flipped)
+                    } else {
+                        AsyncImage(url: URL(string: card.imageUris?.normal ?? "")) { image in
                             image.resizable()
                         } placeholder: {
                             Color.black
                         }
                         .frame(width: 312, height: 432)
-                        .clipShape(.rect(cornerRadius: 16))
-                        .presentationDetents([.large])
-                        .presentationBackground(.ultraThinMaterial)
-                        .opacity(flipped ? 0.0 : 1.0)
-                        
-                        AsyncImage(url: URL(string: cardFace.last?.imagesUris.normal ?? "")) { image in
-                            image.resizable()
-                        } placeholder: {
-                            Color.black
-                        }
-                        .scaleEffect(x: -1, y: 1)
-                        .frame(width: 312, height: 432)
-                        .clipShape(.rect(cornerRadius: 16))
-                        .presentationDetents([.large])
-                        .presentationBackground(.ultraThinMaterial)
-                        .opacity(flipped ? 1.0 : 0.0)
+                        .clipShape(.rect(cornerRadius: 12))
                     }
-                    .overlay(alignment: .bottom) {
-                        Button(action: {
-                            self.flipped.toggle()
-                        }, label: {
-                            Image(systemName: "arrow.left.arrow.right")
-                                .tint(Color(uiColor: .darkGray))
-                                .cornerRadius(4.0)
-                        })
-                        .frame(width: 40, height: 40)
-                        .buttonStyle(.bordered)
-                        .background(Color(uiColor: .lightGray).opacity(0.5))
-                    }
-                    .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
-                    .animation(.default, value: flipped)
                 } else {
-                    AsyncImage(url: URL(string: UserDefaults.standard.selectedCard?.imageUris?.normal ?? "")) { image in
+                    AsyncImage(url: URL(string: UserDefaults.standard.selectedCardImageUri)) { image in
                         image.resizable()
                     } placeholder: {
                         Color.black
                     }
-                    .frame(width: 156, height: 216)
+                    .frame(width: 312, height: 432)
                     .clipShape(.rect(cornerRadius: 12))
                 }
             }
@@ -167,7 +185,7 @@ struct SearchResultView: View {
                 Image(systemName: "chevron.left")
                     .resizable()
                     .foregroundColor(foregroundSelectedColor)
-                    .frame(width: 16)
+                    .frame(width: 16, height: 24)
             })
             
             Spacer()

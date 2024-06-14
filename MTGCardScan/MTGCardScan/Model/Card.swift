@@ -102,7 +102,7 @@ struct PurchaseUris: Codable {
 
 struct CardFace: Codable {
     let name: String
-    let imagesUris: Images
+    let imagesUris: Images?
     
     enum CodingKeys: String, CodingKey {
         case name = "name"

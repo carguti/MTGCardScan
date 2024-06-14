@@ -47,8 +47,6 @@ struct MainView: View {
     @ViewBuilder
     private func getView(tab: MainTab) -> some View {
         switch tab {
-        case .scanView:
-            ScanCardView()
         case .searchView:
             SearchScreenView(searchScreenVM: searchScreenVM, searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM)
         case .historialView:

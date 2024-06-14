@@ -19,9 +19,38 @@ class SearchScreenVM: ObservableObject {
     
     @Published var loading: Bool = false
     
+    @Published var scannedCard: Card?
+    
     // MARK: Init
     init(interactor: SearchScreenInteractor) {
         self.interactor = interactor
+    }
+    
+    //MARK: Get scanned card
+    @MainActor func getScannedCard(cardName: String) async {
+        loading = true
+        
+        cardsByName.removeAll()
+        
+        Task {
+            do {
+                scannedCard = try await interactor.getScannedCard(cardName: cardName)
+                
+                guard let scannedCard = scannedCard else {
+                    loading = false
+                    
+                    return
+                }
+                
+                cardsByName.append(scannedCard)
+                
+                loading = false
+            } catch {
+                print("Error getting scanned card")
+                
+                loading = false
+            }
+        }
     }
     
     //MARK: Get card by partial name

@@ -19,7 +19,7 @@
 // MARK: - Search View
 
 "SEARCH_VIEW_PLACEHOLDER" = "Introduce el nombre de la carta";
-"SEARCH_CARDS_BY_NAME" = "Buscar cartas";
+"SEARCH_CARDS_BY_NAME" = "Buscar carta";
 
 // MARK: - Result View
 

@@ -51,6 +51,7 @@
 		C0C3E04B2BDD64B500BF1993 /* CardNamesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E04A2BDD64B500BF1993 /* CardNamesResult.swift */; };
 		C0C3E04D2BDD85E700BF1993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E04C2BDD85E600BF1993 /* AppDelegate.swift */; };
 		C0C3E0512BDEB3FA00BF1993 /* CardListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E0502BDEB3FA00BF1993 /* CardListCell.swift */; };
+		C0C730052C1516AE00E08242 /* ScanOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C730042C1516AE00E08242 /* ScanOverlayView.swift */; };
 		C0D93CA52BC167E900BDA302 /* CardWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */; };
 		C0D93CA72BC169D000BDA302 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93CA62BC169D000BDA302 /* Card.swift */; };
 		C0DE93612BF51C650032A3E7 /* CardPrints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE93602BF51C650032A3E7 /* CardPrints.swift */; };
@@ -106,6 +107,7 @@
 		C0C3E04A2BDD64B500BF1993 /* CardNamesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNamesResult.swift; sourceTree = "<group>"; };
 		C0C3E04C2BDD85E600BF1993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C3E0502BDEB3FA00BF1993 /* CardListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListCell.swift; sourceTree = "<group>"; };
+		C0C730042C1516AE00E08242 /* ScanOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanOverlayView.swift; sourceTree = "<group>"; };
 		C0D93CA42BC167E900BDA302 /* CardWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWebRepository.swift; sourceTree = "<group>"; };
 		C0D93CA62BC169D000BDA302 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C0DE93602BF51C650032A3E7 /* CardPrints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPrints.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				C0C3E0302BD81A3E00BF1993 /* TaBar */,
 				C07D4E0A2C14735100CE140B /* LoadingView.swift */,
 				C0C3E0252BCEC12D00BF1993 /* RoundedRectLabel.swift */,
+				C0C730042C1516AE00E08242 /* ScanOverlayView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				C0C3E0192BCD742F00BF1993 /* SplashScreenVM.swift in Sources */,
 				C0C3E0172BCD740100BF1993 /* SplashScreenView.swift in Sources */,
 				C0C3E0452BDD604500BF1993 /* SearchScreenView.swift in Sources */,
+				C0C730052C1516AE00E08242 /* ScanOverlayView.swift in Sources */,
 				C03FD4A62BFE47C800BAC557 /* FavouritesCardsInteractor.swift in Sources */,
 				C0B52B0C2BBB36700012A66C /* WebRepository.swift in Sources */,
 				C0B52B082BBB365A0012A66C /* APICall.swift in Sources */,

@@ -48,7 +48,6 @@ struct TabBarIconView<Tab: TabBarItem & CaseIterable>: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarIconView(tab: MainTab.scanView, selected: false)
         TabBarIconView(tab: MainTab.searchView, selected: true)
         TabBarIconView(tab: MainTab.historialView, selected: false)
         TabBarIconView(tab: MainTab.favouritesView, selected: false)
