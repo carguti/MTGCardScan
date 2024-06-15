@@ -162,6 +162,27 @@ extension UserDefaults {
     }
 }
 
+// MARK: - Selected card print info
+extension UserDefaults {
+    struct UserDefaultsSelectedPrintInfoKeys {
+        static let kSelectedCardPrintInfo = "SelectedCardPrintInfo"
+    }
+    
+    // MARK: - Get fav cards
+    var selectedCardPrintInfo: CardPrintsInfo? {
+        get {
+            guard let selectedCardPrintInfo = get(objectType: CardPrintsInfo.self, forKey: UserDefaultsSelectedPrintInfoKeys.kSelectedCardPrintInfo) else { return nil }
+            return selectedCardPrintInfo
+        }
+        
+        set {
+            set(object: newValue, forKey: UserDefaultsSelectedPrintInfoKeys.kSelectedCardPrintInfo)
+            
+            synchronize()
+        }
+    }
+}
+
 // MARK: - Historial cards
 extension UserDefaults {
     struct UserDefaultsCardsHistorialKeys {

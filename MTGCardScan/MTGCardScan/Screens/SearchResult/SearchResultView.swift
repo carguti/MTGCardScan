@@ -14,8 +14,8 @@ struct SearchResultView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var card: Card
-    let foregroundSelectedColor = Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1))
     
+    let foregroundSelectedColor = Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1))
     let secondaryColor = Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1))
     
     @State var flipped = false
@@ -32,7 +32,7 @@ struct SearchResultView: View {
             if let cardFace = UserDefaults.standard.selectedCard?.cardFaces {
                 if cardFace.first?.imagesUris != nil {
                     ZStack {
-                        AsyncImage(url: URL(string: cardFace.first?.imagesUris != nil ? cardFace.first?.imagesUris?.normal ?? "" : card.imageUris?.normal ?? "")) { image in
+                        AsyncImage(url: URL(string: cardFace.first?.imagesUris != nil ? cardFace.first?.imagesUris?.normal ?? "" : UserDefaults.standard.selectedCard?.imageUris?.normal ?? "")) { image in
                             image.resizable()
                         } placeholder: {
                             Color.black
@@ -57,13 +57,15 @@ struct SearchResultView: View {
                         }, label: {
                             Image(systemName: "arrow.left.arrow.right")
                                 .resizable()
-                                .frame(width: 32, height: 32)
+                                .frame(width: 22, height: 22)
                                 .foregroundColor(secondaryColor)
                                 .cornerRadius(4.0)
                         })
-                        .frame(width: 32, height: 32)
+                        .frame(width: 26, height: 26)
                         .buttonStyle(.bordered)
-                        .background(Color(uiColor: .lightGray).opacity(0.5))
+                        .background(Color(uiColor: .gray).opacity(0.8))
+                        .padding(.bottom, 6)
+                        .cornerRadius(6)
                     }
                     .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
                     .animation(.default, value: flipped)
@@ -114,10 +116,10 @@ struct SearchResultView: View {
                     .foregroundColor(Color(uiColor: .white))
                     .multilineTextAlignment(.center)
                 
-                if let cardFace = UserDefaults.standard.selectedCard?.cardFaces {
+                if let cardFace = UserDefaults.standard.selectedCardPrintInfo?.cardFaces {
                     if cardFace.first?.imagesUris != nil {
                         ZStack {
-                            AsyncImage(url: URL(string: cardFace.first?.imagesUris != nil ? cardFace.first?.imagesUris?.normal ?? "" : card.imageUris?.normal ?? "")) { image in
+                            AsyncImage(url: URL(string: cardFace.first?.imagesUris?.normal ?? "")) { image in
                                 image.resizable()
                             } placeholder: {
                                 Color.black
@@ -142,18 +144,20 @@ struct SearchResultView: View {
                             }, label: {
                                 Image(systemName: "arrow.left.arrow.right")
                                     .resizable()
-                                    .frame(width: 32, height: 32)
+                                    .frame(width: 22, height: 22)
                                     .foregroundColor(secondaryColor)
                                     .cornerRadius(4.0)
                             })
-                            .frame(width: 32, height: 32)
+                            .frame(width: 26, height: 26)
                             .buttonStyle(.bordered)
-                            .background(Color(uiColor: .lightGray).opacity(0.5))
+                            .background(Color(uiColor: .gray).opacity(0.8))
+                            .padding(.bottom, 6)
+                            .cornerRadius(6)
                         }
                         .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
                         .animation(.default, value: flipped)
                     } else {
-                        AsyncImage(url: URL(string: card.imageUris?.normal ?? "")) { image in
+                        AsyncImage(url: URL(string: UserDefaults.standard.selectedCardPrintInfo?.imageUris?.normal ?? "")) { image in
                             image.resizable()
                         } placeholder: {
                             Color.black
@@ -162,7 +166,7 @@ struct SearchResultView: View {
                         .clipShape(.rect(cornerRadius: 12))
                     }
                 } else {
-                    AsyncImage(url: URL(string: UserDefaults.standard.selectedCardImageUri)) { image in
+                    AsyncImage(url: URL(string: UserDefaults.standard.selectedCardPrintInfo?.imageUris?.normal ?? "")) { image in
                         image.resizable()
                     } placeholder: {
                         Color.black
@@ -172,6 +176,8 @@ struct SearchResultView: View {
                 }
             }
             .padding(.top, 26)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.gray.edgesIgnoringSafeArea(.all))
             
         })
     }
@@ -288,6 +294,7 @@ struct SearchResultView: View {
                     .onTapGesture {
                         UserDefaults.standard.selectedCardImageUri = cardPrintInfo.imageUris?.large ?? ""
                         UserDefaults.standard.selectedCardEdition = cardPrintInfo.setName
+                        UserDefaults.standard.selectedCardPrintInfo = cardPrintInfo
                         showCardImagePopUp = true
                     }
             }

@@ -45,13 +45,15 @@ struct CardListCell: View {
                             }, label: {
                                 Image(systemName: "arrow.left.arrow.right")
                                     .resizable()
-                                    .frame(width: 32, height: 32)
+                                    .frame(width: 22, height: 22)
                                     .foregroundColor(secondaryColor)
                                     .cornerRadius(4.0)
                             })
-                            .frame(width: 32, height: 32)
+                            .frame(width: 26, height: 26)
                             .buttonStyle(.bordered)
-                            .background(Color(uiColor: .lightGray).opacity(0.5))
+                            .background(Color(uiColor: .gray).opacity(0.8))
+                            .padding(.bottom, 6)
+                            .cornerRadius(6)
                         }
                         .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
                         .animation(.default, value: flipped)
