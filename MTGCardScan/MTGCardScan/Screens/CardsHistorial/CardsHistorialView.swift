@@ -44,9 +44,10 @@ struct CardsHistorialView: View {
         .hiddenNavigationBarStyle()
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(uiColor: .darkGray))
         .padding(.horizontal, 0)
         .padding(.top, 60)
+        .padding(.bottom, 52)
+        .background(Color(uiColor: .darkGray))
     }
     
     // MARK: searchFields view

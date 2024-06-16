@@ -16,11 +16,17 @@ struct RealCardsHistorialDDBBRepository: CardsHistorialDDBBRepository {
     func store(card: Card) throws {
         if !UserDefaults.standard.cardsHistorial.contains(card) {
             UserDefaults.standard.cardsHistorial.append(card)
+        } else {
+            if let index = UserDefaults.standard.cardsHistorial.firstIndex(of: card) {
+                UserDefaults.standard.cardsHistorial.remove(at: index)
+                
+                UserDefaults.standard.cardsHistorial.append(card)
+            }
         }
     }
     
     func getCardsHistorial() throws -> [Card] {
-        return UserDefaults.standard.cardsHistorial
+        return UserDefaults.standard.cardsHistorial.reversed()
     }
 }
 

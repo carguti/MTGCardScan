@@ -16,11 +16,17 @@ struct RealFavouritesCardsDDBBRepository: FavouritesCardsDDBBRepository {
     func store(card: Card) throws {
         if !UserDefaults.standard.favCards.contains(card) {
             UserDefaults.standard.favCards.append(card)
+        } else {
+            if let index = UserDefaults.standard.favCards.firstIndex(of: card) {
+                UserDefaults.standard.favCards.remove(at: index)
+                
+                UserDefaults.standard.favCards.append(card)
+            }
         }
     }
     
     func getFavCards() throws -> [Card] {
-        return UserDefaults.standard.favCards
+        return UserDefaults.standard.favCards.reversed()
     }
 }
 
