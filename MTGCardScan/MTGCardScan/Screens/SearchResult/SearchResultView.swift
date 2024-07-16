@@ -13,6 +13,10 @@ struct SearchResultView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @Environment(\.openURL) private var openURL
+    
+    let titleColor = Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1))
+    
     var card: Card
     
     let foregroundSelectedColor = Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1))
@@ -29,63 +33,87 @@ struct SearchResultView: View {
         ScrollView {
             nameAndFavView
             
-            if let cardFace = UserDefaults.standard.selectedCard?.cardFaces {
-                if cardFace.first?.imagesUris != nil {
-                    ZStack {
-                        AsyncImage(url: URL(string: cardFace.first?.imagesUris != nil ? cardFace.first?.imagesUris?.normal ?? "" : UserDefaults.standard.selectedCard?.imageUris?.normal ?? "")) { image in
+            VStack {
+                if let cardFace = UserDefaults.standard.selectedCard?.cardFaces {
+                    if cardFace.first?.imagesUris != nil {
+                        ZStack {
+                            AsyncImage(url: URL(string: cardFace.first?.imagesUris != nil ? cardFace.first?.imagesUris?.normal ?? "" : UserDefaults.standard.selectedCard?.imageUris?.normal ?? "")) { image in
+                                image.resizable()
+                            } placeholder: {
+                                Image("searchViewIcon")
+                                    .resizable()
+                                    .frame(width: 156, height: 216)
+                            }
+                            .frame(width: 312, height: 432)
+                            .clipShape(.rect(cornerRadius: 12))
+                            .opacity(flipped ? 0.0 : 1.0)
+                            
+                            AsyncImage(url: URL(string: cardFace.last?.imagesUris?.normal ?? "")) { image in
+                                image.resizable()
+                            } placeholder: {
+                                Image("searchViewIcon")
+                                    .resizable()
+                                    .frame(width: 156, height: 216)
+                            }
+                            .scaleEffect(x: -1, y: 1)
+                            .frame(width: 312, height: 432)
+                            .clipShape(.rect(cornerRadius: 12))
+                            .opacity(flipped ? 1.0 : 0.0)
+                        }
+                        .overlay(alignment: .bottom) {
+                            Button(action: {
+                                self.flipped.toggle()
+                            }, label: {
+                                Image(systemName: "arrow.left.arrow.right")
+                                    .resizable()
+                                    .frame(width: 22, height: 22)
+                                    .foregroundColor(secondaryColor)
+                                    .cornerRadius(4.0)
+                            })
+                            .frame(width: 26, height: 26)
+                            .buttonStyle(.bordered)
+                            .background(Color(uiColor: .gray).opacity(0.8))
+                            .padding(.bottom, 6)
+                            .cornerRadius(6)
+                        }
+                        .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
+                        .animation(.default, value: flipped)
+                    } else {
+                        AsyncImage(url: URL(string: card.imageUris?.normal ?? "")) { image in
                             image.resizable()
                         } placeholder: {
-                            Color.black
-                        }
-                        .frame(width: 312, height: 432)
-                        .clipShape(.rect(cornerRadius: 12))
-                        .opacity(flipped ? 0.0 : 1.0)
-                        
-                        AsyncImage(url: URL(string: cardFace.last?.imagesUris?.normal ?? "")) { image in
-                            image.resizable()
-                        } placeholder: {
-                            Color.black
-                        }
-                        .scaleEffect(x: -1, y: 1)
-                        .frame(width: 312, height: 432)
-                        .clipShape(.rect(cornerRadius: 12))
-                        .opacity(flipped ? 1.0 : 0.0)
-                    }
-                    .overlay(alignment: .bottom) {
-                        Button(action: {
-                            self.flipped.toggle()
-                        }, label: {
-                            Image(systemName: "arrow.left.arrow.right")
+                            Image("searchViewIcon")
                                 .resizable()
-                                .frame(width: 22, height: 22)
-                                .foregroundColor(secondaryColor)
-                                .cornerRadius(4.0)
-                        })
-                        .frame(width: 26, height: 26)
-                        .buttonStyle(.bordered)
-                        .background(Color(uiColor: .gray).opacity(0.8))
-                        .padding(.bottom, 6)
-                        .cornerRadius(6)
+                                .frame(width: 156, height: 216)
+                        }
+                        .frame(width: 312, height: 432)
+                        .clipShape(.rect(cornerRadius: 12))
                     }
-                    .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
-                    .animation(.default, value: flipped)
                 } else {
-                    AsyncImage(url: URL(string: card.imageUris?.normal ?? "")) { image in
+                    AsyncImage(url: URL(string: UserDefaults.standard.selectedCard?.imageUris?.normal ?? "")) { image in
                         image.resizable()
                     } placeholder: {
-                        Color.black
+                        Image("searchViewIcon")
+                            .resizable()
+                            .frame(width: 156, height: 216)
                     }
                     .frame(width: 312, height: 432)
                     .clipShape(.rect(cornerRadius: 12))
                 }
-            } else {
-                AsyncImage(url: URL(string: UserDefaults.standard.selectedCard?.imageUris?.normal ?? "")) { image in
-                    image.resizable()
-                } placeholder: {
-                    Color.black
+                
+                Button {
+                    if let url = URL(string: (card.relatedUris.edhrec)) {
+                        openURL(url) { accepted in
+                            print(accepted ? "Success" : "Failure")
+                        }
+                    }
+                } label: {
+                    Text("Consultar en EDHREC")
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(Color(titleColor))
+                        .background(.clear)
                 }
-                .frame(width: 312, height: 432)
-                .clipShape(.rect(cornerRadius: 12))
             }
             
             pricesLegalityView
@@ -122,7 +150,9 @@ struct SearchResultView: View {
                             AsyncImage(url: URL(string: cardFace.first?.imagesUris?.normal ?? "")) { image in
                                 image.resizable()
                             } placeholder: {
-                                Color.black
+                                Image("searchViewIcon")
+                                    .resizable()
+                                    .frame(width: 156, height: 216)
                             }
                             .frame(width: 312, height: 432)
                             .clipShape(.rect(cornerRadius: 12))
@@ -131,7 +161,9 @@ struct SearchResultView: View {
                             AsyncImage(url: URL(string: cardFace.last?.imagesUris?.normal ?? "")) { image in
                                 image.resizable()
                             } placeholder: {
-                                Color.black
+                                Image("searchViewIcon")
+                                    .resizable()
+                                    .frame(width: 156, height: 216)
                             }
                             .scaleEffect(x: -1, y: 1)
                             .frame(width: 312, height: 432)
@@ -160,7 +192,9 @@ struct SearchResultView: View {
                         AsyncImage(url: URL(string: UserDefaults.standard.selectedCardPrintInfo?.imageUris?.normal ?? "")) { image in
                             image.resizable()
                         } placeholder: {
-                            Color.black
+                            Image("searchViewIcon")
+                                .resizable()
+                                .frame(width: 156, height: 216)
                         }
                         .frame(width: 312, height: 432)
                         .clipShape(.rect(cornerRadius: 12))
@@ -169,7 +203,9 @@ struct SearchResultView: View {
                     AsyncImage(url: URL(string: UserDefaults.standard.selectedCardPrintInfo?.imageUris?.normal ?? "")) { image in
                         image.resizable()
                     } placeholder: {
-                        Color.black
+                        Image("searchViewIcon")
+                            .resizable()
+                            .frame(width: 156, height: 216)
                     }
                     .frame(width: 312, height: 432)
                     .clipShape(.rect(cornerRadius: 12))
@@ -199,14 +235,13 @@ struct SearchResultView: View {
             Text(card.name)
                 .font(.system(size: 22).bold())
                 .foregroundColor(Color(uiColor: .white))
-                .multilineTextAlignment(.center)
-            
-            
+                .multilineTextAlignment(.trailing)
             
             Spacer()
             
             Button(action: {
-                isFav = !isFav
+                isFav.toggle()
+                
                 if isFav && !UserDefaults.standard.favCards.contains(card) {
                     UserDefaults.standard.favCards.append(card)
                 } else if !isFav && UserDefaults.standard.favCards.contains(card) {
@@ -215,13 +250,16 @@ struct SearchResultView: View {
                     }
                 }
             }, label: {
-                Image(systemName: isFav || UserDefaults.standard.favCards.contains(card) ? "star.fill" : "star")
+                Image(systemName: isFav ? "star.fill" : "star")
                     .resizable()
                     .foregroundColor(Color(uiColor: UIColor(red: 255/255, green: 173/255, blue: 1/255, alpha: 1)))
                     .frame(width: 36, height: 36)
+                    .multilineTextAlignment(.trailing)
             })
-            
-            Spacer()
+            .multilineTextAlignment(.trailing)
+        }
+        .onAppear {
+            isFav = UserDefaults.standard.favCards.contains(card) ? true : false
         }
         .padding(.horizontal, 26)
         .frame(maxWidth: .infinity)
@@ -236,7 +274,7 @@ struct SearchResultView: View {
                     showLegality = false
                 }, label: {
                     Capsule()
-                        .fill(foregroundSelectedColor.opacity(0.8))
+                        .fill(foregroundSelectedColor)
                         .frame(width: 124, height: 42)
                         .animation(.spring(), value: showPrices)
                         .opacity(showPrices ? 0.5 : 0.0)
@@ -256,7 +294,7 @@ struct SearchResultView: View {
                     showLegality = true
                 }, label: {
                     Capsule()
-                        .fill(foregroundSelectedColor.opacity(0.8))
+                        .fill(foregroundSelectedColor)
                         .frame(width: 124, height: 42)
                         .animation(.spring(), value: showLegality)
                         .opacity(showLegality ? 0.5 : 0.0)

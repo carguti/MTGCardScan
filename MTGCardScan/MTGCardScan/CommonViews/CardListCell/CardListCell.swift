@@ -23,7 +23,9 @@ struct CardListCell: View {
                             AsyncImage(url: URL(string: cardFace.first?.imagesUris != nil ? cardFace.first?.imagesUris?.normal ?? "" : card?.imageUris?.normal ?? "")) { image in
                                 image.resizable()
                             } placeholder: {
-                                Color.black
+                                Image("searchViewIcon")
+                                    .resizable()
+                                    .frame(width: 156, height: 216)
                             }
                             .frame(width: 156, height: 216)
                             .clipShape(.rect(cornerRadius: 12))
@@ -32,7 +34,9 @@ struct CardListCell: View {
                             AsyncImage(url: URL(string: cardFace.last?.imagesUris?.normal ?? "")) { image in
                                 image.resizable()
                             } placeholder: {
-                                Color.black
+                                Image("searchViewIcon")
+                                    .resizable()
+                                    .frame(width: 156, height: 216)
                             }
                             .scaleEffect(x: -1, y: 1)
                             .frame(width: 156, height: 216)
@@ -61,7 +65,9 @@ struct CardListCell: View {
                         AsyncImage(url: URL(string: card?.imageUris?.normal ?? "")) { image in
                             image.resizable()
                         } placeholder: {
-                            Color.black
+                            Image("searchViewIcon")
+                                .resizable()
+                                .frame(width: 156, height: 216)
                         }
                         .frame(width: 156, height: 216)
                         .clipShape(.rect(cornerRadius: 12))
@@ -70,7 +76,9 @@ struct CardListCell: View {
                     AsyncImage(url: URL(string: card?.imageUris?.normal ?? "")) { image in
                         image.resizable()
                     } placeholder: {
-                        Color.black
+                        Image("searchViewIcon")
+                            .resizable()
+                            .frame(width: 156, height: 216)
                     }
                     .frame(width: 156, height: 216)
                     .clipShape(.rect(cornerRadius: 12))

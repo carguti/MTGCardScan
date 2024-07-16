@@ -12,6 +12,7 @@ struct SearchScreenView: View {
     @StateObject var searchResultVM: SearchResultVM
     @StateObject var cardsHistorialVM: CardsHistorialVM
     @State private var showScannerView = false
+    @FocusState private var nameIsFocused: Bool
     
     @State private var cardName = ""
     var cardNames: [String] = []
@@ -41,6 +42,12 @@ struct SearchScreenView: View {
         ZStack {
             VStack {
                 searchView
+                    .gesture(
+                        TapGesture()
+                            .onEnded { _ in
+                                nameIsFocused = false
+                            }
+                    )
                 
                 resultsView
                     .opacity(searchScreenVM.cardsByName.count > 0 ? 1 : 0)
@@ -82,11 +89,21 @@ struct SearchScreenView: View {
                     .font(.system(size: 28).bold())
                     .foregroundColor(Color(uiColor: .white))
                 
+                
+                Image("searchViewIcon")
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(.white)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: searchScreenVM.cardsByName.count > 0 ? 100 : 300)
+                
                 VStack {
                     HStack {
                         HStack(spacing: 8) {
                             TextField("SEARCH_VIEW_PLACEHOLDER".localized, text: $cardName)
                                 .foregroundColor(Color(uiColor: .white))
+                                .focused($nameIsFocused)
+
                             
                             Button {
                                 cardName = ""
@@ -109,6 +126,7 @@ struct SearchScreenView: View {
                         Button(action: {
                             Task {
                                 await searchScreenVM.getCard(cardName: cardName)
+                                nameIsFocused = false
                             }
                         }, label: {
                             HStack {
@@ -141,6 +159,8 @@ struct SearchScreenView: View {
                         })
                     }
                 }
+                
+                
             }
             
         }
@@ -162,7 +182,7 @@ struct SearchScreenView: View {
             }
             
             if resultsMode == .grid {
-                ScrollView{
+                ScrollView {
                     LazyVGrid(columns: adaptiveColumn, spacing: 20) {
                         ForEach(searchScreenVM.cardsByName, id: \.self) { card in
                             NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {

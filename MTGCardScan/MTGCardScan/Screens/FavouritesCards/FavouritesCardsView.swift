@@ -10,6 +10,7 @@ import SwiftUI
 struct FavouritesCardsView: View {
     @StateObject var searchResultVM: SearchResultVM
     @StateObject var cardsHistorialVM: CardsHistorialVM
+    @State var favCards: [Card] = []
     
     private let adaptiveColumn = [
         GridItem(.fixed(150)),
@@ -52,6 +53,9 @@ struct FavouritesCardsView: View {
             LoadingView()
                 .opacity(searchResultVM.loading ? 1.0 : 0.0)
         }
+        .onAppear {
+            favCards = UserDefaults.standard.favCards.reversed()
+        }
     }
     
     // MARK: searchFields view
@@ -70,7 +74,7 @@ struct FavouritesCardsView: View {
             if resultsMode == .grid {
                 ScrollView{
                     LazyVGrid(columns: adaptiveColumn, spacing: 20) {
-                        ForEach(UserDefaults.standard.favCards, id: \.self) { card in
+                        ForEach(favCards, id: \.self) { card in
                             NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {
                                 CardGridCell(card: card)
                                     .listRowBackground(Color.clear)
@@ -86,7 +90,7 @@ struct FavouritesCardsView: View {
                 }
             } else {
                 VStack {
-                    ForEach(UserDefaults.standard.favCards, id: \.self) { card in
+                    ForEach(favCards, id: \.self) { card in
                         NavigationLink(destination: SearchResultView(searchResultVM: searchResultVM, cardsHistorialVM: cardsHistorialVM, card: card)) {
                             CardListCell(card: card)
                                 .listRowBackground(Color.clear)
